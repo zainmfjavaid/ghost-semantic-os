@@ -21,6 +21,12 @@ if [ "$mode" = --full ]; then
   # prevents one test module from contaminating the next.
   while IFS= read -r test_file; do
     case "$(basename "$test_file")" in
+      test_close_leak.py)
+        if [ "$(uname -s)" != "Darwin" ]; then
+          echo "DEFER macOS local-Chrome integration: ${test_file#$root/}"
+          continue
+        fi
+        ;;
       test_server_web_path.py|test_web_antiloop.py|test_web_find.py|\
       test_web_frames.py|test_web_js.py|test_web_offscreen.py|\
       test_web_provider.py|test_web_read.py|test_web_research.py|\
