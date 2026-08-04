@@ -150,14 +150,14 @@ class SemanticSimpleTrajectoryPackTest(unittest.TestCase):
             if step["op"] in {"click", "type"}
         ], [
             "Chrome — Semantic Public Journey",
-            'textbox "Message" type=replace',
+            'textbox "Message"',
             'button "Apply message" click',
             "LibreOffice Writer — Untitled",
             "[A] Desktop",
             'application "Settings" click',
             "Chrome — Semantic Public Journey",
             'button "Attach fixture file"',
-            'input "Choose exact guest path" type=replace',
+            'input "Choose exact guest path"',
         ])
         self.assertEqual(
             [step["text"] for step in fixture["steps"] if step["op"] == "type"],
