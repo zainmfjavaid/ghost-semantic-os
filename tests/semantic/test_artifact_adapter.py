@@ -35,6 +35,33 @@ def _query(path: str) -> dict:
     }
 
 
+def _minimal_pdf() -> bytes:
+    """Build a valid one-page PDF without relying on an optional writer."""
+
+    objects = (
+        b"<< /Type /Catalog /Pages 2 0 R >>",
+        b"<< /Type /Pages /Kids [3 0 R] /Count 1 >>",
+        b"<< /Type /Page /Parent 2 0 R /MediaBox [0 0 72 72] >>",
+    )
+    payload = bytearray(b"%PDF-1.4\n")
+    offsets = [0]
+    for number, body in enumerate(objects, start=1):
+        offsets.append(len(payload))
+        payload.extend(f"{number} 0 obj\n".encode("ascii"))
+        payload.extend(body)
+        payload.extend(b"\nendobj\n")
+    xref_offset = len(payload)
+    payload.extend(f"xref\n0 {len(offsets)}\n".encode("ascii"))
+    payload.extend(b"0000000000 65535 f \n")
+    for offset in offsets[1:]:
+        payload.extend(f"{offset:010d} 00000 n \n".encode("ascii"))
+    payload.extend(
+        f"trailer\n<< /Size {len(offsets)} /Root 1 0 R >>\n"
+        f"startxref\n{xref_offset}\n%%EOF\n".encode("ascii")
+    )
+    return bytes(payload)
+
+
 class ArtifactAdapterTests(unittest.TestCase):
     def setUp(self) -> None:
         self.temporary = tempfile.TemporaryDirectory()
@@ -153,7 +180,7 @@ class ArtifactAdapterTests(unittest.TestCase):
         self.assertEqual(parse_artifact(odt)["paragraphs"][0]["text"], "ODF text")
 
         pdf = self.root / "a.pdf"
-        pdf.write_bytes(b"%PDF-1.4\n1 0 obj<</Type /Page>>endobj\n%%EOF")
+        pdf.write_bytes(_minimal_pdf())
         self.assertEqual(parse_artifact(pdf)["page_count"], 1)
 
     def test_runtime_reobservation_keeps_scoped_file_ref_actionable(self) -> None:
