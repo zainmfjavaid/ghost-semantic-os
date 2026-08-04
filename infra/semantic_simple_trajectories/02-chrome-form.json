@@ -7,7 +7,7 @@
   "steps": [
     {"op": "read", "expect": {"contains": ["COMPUTER", "Chrome"], "active_header_contains": "Chrome", "active_header_not_contains": "gnome-shell", "min_surface_count": 1, "min_element_count": 1, "min_returned_elements": 1}},
     {"op": "read", "query": "textbox To", "expect": {"contains": ["COMPUTER", "textbox \"To\""], "active_header_contains": "Chrome", "min_surface_count": 1, "min_element_count": 1, "min_returned_elements": 1}},
-    {"op": "type", "match": {"contains": "textbox \"To\" type=replace"}, "text": "Dublin", "expect": {"contains": "COMPUTER", "active_header_contains": "Chrome", "active_header_not_contains": "gnome-shell", "min_surface_count": 1, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "type", "match": {"contains": "textbox \"To\""}, "text": "Dublin", "expect": {"contains": "COMPUTER", "active_header_contains": "Chrome", "active_header_not_contains": "gnome-shell", "min_surface_count": 1, "min_element_count": 1, "min_returned_elements": 1}},
     {"op": "read", "query": "button Search", "expect": {"contains": ["COMPUTER", "button \"Search\" click"], "active_header_contains": "Chrome", "min_surface_count": 1, "min_element_count": 1, "min_returned_elements": 1}},
     {"op": "click", "match": {"contains": "button \"Search\" click"}, "expect": {"contains": "COMPUTER", "active_header_contains": "Chrome", "active_header_not_contains": "gnome-shell", "min_surface_count": 1, "min_element_count": 1, "min_returned_elements": 1}}
   ]

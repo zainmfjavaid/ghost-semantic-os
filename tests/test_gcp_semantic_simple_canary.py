@@ -187,13 +187,13 @@ class SemanticSimpleCanaryTest(unittest.TestCase):
     def test_dynamic_resolution_is_literal_immediate_and_exactly_one(self) -> None:
         rendered = (
             "COMPUTER\n[A] Chrome — active\n"
-            "[A1] button \"Save\" click\n[A2] textbox \"Name\" type=replace"
+            "[A1] button \"Save\" click\n[A2] textbox \"Name\" click type=replace"
         )
         self.assertEqual(
             CANARY.resolve_rendered_capability(rendered, 'textbox "Name"'),
             {
                 "contains": 'textbox "Name"',
-                "line": '[A2] textbox "Name" type=replace',
+                "line": '[A2] textbox "Name" click type=replace',
                 "element": "A2",
             },
         )
