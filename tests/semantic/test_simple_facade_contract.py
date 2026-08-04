@@ -394,6 +394,29 @@ def test_active_surface_header_always_names_app_title_and_state() -> None:
     assert "Active Surface [A]\n" not in view["text"]
 
 
+def test_full_read_omits_empty_inactive_surface_sections() -> None:
+    harness = _Harness()
+    harness.install_desktop([
+        {
+            "key": "inbox",
+            "title": "Inbox",
+            "active": True,
+            "elements": [_button("compose", "Compose")],
+        },
+        {"key": "archive", "title": "Archive", "active": False},
+        {"key": "settings", "title": "Settings", "active": False},
+    ], app="Thunderbird")
+
+    view = harness.facade.read()
+
+    assert "[B] Thunderbird — Archive" in view["text"]
+    assert "[C] Thunderbird — Settings" in view["text"]
+    assert "Surface [B]" not in view["text"]
+    assert "Surface [C]" not in view["text"]
+    assert "No meaningful semantic elements on this surface." not in view["text"]
+    assert 'button "Compose" click' in view["text"]
+
+
 def test_common_process_names_render_as_friendly_application_names() -> None:
     cases = {
         "vlc": "VLC",

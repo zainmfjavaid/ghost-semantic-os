@@ -21,6 +21,15 @@ if [ "$mode" = --full ]; then
   # prevents one test module from contaminating the next.
   while IFS= read -r test_file; do
     case "$(basename "$test_file")" in
+      test_simple_facade_contract.py)
+        # This module exports function contracts through unittest.load_tests;
+        # running the file directly would define them without collecting them.
+        echo "PYTEST ${test_file#$root/}"
+        PYTHONPATH="$root:$root/OSWorld${PYTHONPATH:+:$PYTHONPATH}" \
+          "$python_bin" -m unittest discover \
+            -s "$(dirname "$test_file")" -p "$(basename "$test_file")"
+        continue
+        ;;
       test_close_leak.py)
         if [ "$(uname -s)" != "Darwin" ]; then
           echo "DEFER macOS local-Chrome integration: ${test_file#$root/}"

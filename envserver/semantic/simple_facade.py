@@ -2566,7 +2566,12 @@ class SimpleComputerFacade:
         output_full = False
         for surface in surfaces:
             surface_elements = candidate_by_surface.get(surface.identity, [])
-            if not surface_elements and not full_inventory:
+            # The surface index above is the complete switchable inventory.
+            # Repeating an empty section for every inactive app adds no state,
+            # duplicates placeholder prose, and grows linearly with open apps.
+            # Keep an empty section only for the active surface on an unfiltered
+            # read, where the absence of meaningful controls is itself useful.
+            if not surface_elements and (not full_inventory or not surface.active):
                 continue
             heading = (
                 f"Active Surface {surface.label()}"
