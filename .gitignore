@@ -1,4 +1,5 @@
 /OSWorld/
+/docker_vm_data/
 harness/node_modules/
 harness/results/
 .venv/
