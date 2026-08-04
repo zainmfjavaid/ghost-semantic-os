@@ -1,0 +1,51 @@
+From b385ff6bdf78cdc47b08e5edf94a8155dd0f7bf4 Mon Sep 17 00:00:00 2001
+From: zainmfjavaid <zainmfj@gmail.com>
+Date: Mon, 3 Aug 2026 02:54:00 -0700
+Subject: [PATCH 5/6] fix: fail closed on setup command errors
+
+---
+ desktop_env/controllers/setup.py | 21 +++++++++++++++++----
+ 1 file changed, 17 insertions(+), 4 deletions(-)
+
+diff --git a/desktop_env/controllers/setup.py b/desktop_env/controllers/setup.py
+index 43cbeb7..fdd2c6a 100644
+--- a/desktop_env/controllers/setup.py
++++ b/desktop_env/controllers/setup.py
+@@ -492,10 +492,18 @@ class SetupController:
+                     if stderr:
+                         with open(os.path.join(self.cache_dir, stderr), "w") as f:
+                             f.write(results["error"])
+-                    logger.info("Command executed successfully: %s -> %s"
+-                                , _redact_command_for_log(command)
+-                                , response.text
+-                                )
++                    returncode = results.get("returncode")
++                    if returncode == 0:
++                        logger.info("Command executed successfully: %s -> %s"
++                                    , _redact_command_for_log(command)
++                                    , response.text
++                                    )
++                    else:
++                        logger.warning("Command returned nonzero status %r: %s -> %s"
++                                       , returncode
++                                       , _redact_command_for_log(command)
++                                       , response.text
++                                       )
+                 else:
+                     logger.error("Failed to launch application. Status code: %s", response.text)
+                     results = None
+@@ -508,6 +516,11 @@ class SetupController:
+                 nb_failings += 1
+ 
+             if len(until) == 0:
++                if results is not None and results.get("returncode") != 0:
++                    raise RuntimeError(
++                        "Setup command failed with return code "
++                        f"{results.get('returncode')!r}"
++                    )
+                 terminates = True
+             elif results is not None:
+                 terminates = "returncode" in until and results["returncode"] == until["returncode"] \
+-- 
+2.50.1 (Apple Git-155)
+

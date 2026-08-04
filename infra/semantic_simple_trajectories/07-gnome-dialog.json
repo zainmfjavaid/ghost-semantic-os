@@ -1,0 +1,47 @@
+{
+  "name": "Real GTK question dialog semantics",
+  "coverage": [
+    "gnome",
+    "dialog",
+    "gtk",
+    "native-dialog-action"
+  ],
+  "task_path": "infra/semantic_simple_trajectories/tasks/gtk-question-dialog.json",
+  "max_tool_calls": 20,
+  "quality_constraints": {
+    "min_chars": 1,
+    "max_chars": 10000,
+    "max_estimated_tokens": 2500,
+    "max_duplicate_lines": 0,
+    "forbid_protocol_jargon": true,
+    "zero_images": true
+  },
+  "steps": [
+    {
+      "op": "read",
+      "expect": {
+        "contains": [
+          "COMPUTER",
+          "Semantic Dialog Fixture",
+          "Continue"
+        ],
+        "active_header_contains": "Semantic Dialog Fixture",
+        "active_header_not_contains": "gnome-shell",
+        "min_surface_count": 1,
+        "min_element_count": 1,
+        "min_returned_elements": 1
+      }
+    },
+    {
+      "op": "click",
+      "match": {
+        "contains": "Continue"
+      },
+      "expect": {
+        "contains": "COMPUTER",
+        "min_surface_count": 1,
+        "min_element_count": 0
+      }
+    }
+  ]
+}

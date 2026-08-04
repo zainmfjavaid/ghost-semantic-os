@@ -1,0 +1,14 @@
+{
+  "name": "Chrome settings surface semantics",
+  "coverage": ["chrome", "chrome-settings", "privacy"],
+  "task_path": "OSWorld/evaluation_examples/examples/chrome/030eeff7-b492-4218-b312-701ec99ee0cc.json",
+  "max_tool_calls": 20,
+  "quality_constraints": {"min_chars": 1, "max_chars": 10000, "max_estimated_tokens": 2500, "max_duplicate_lines": 0, "forbid_protocol_jargon": true, "zero_images": true},
+  "steps": [
+    {"op": "read", "expect": {"contains": ["COMPUTER", "Chrome", "input \"Address\""], "active_header_contains": "Chrome", "active_header_not_contains": "gnome-shell", "min_surface_count": 1, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "read", "query": "input Address", "expect": {"contains": ["COMPUTER", "input \"Address\"", "type=replace"], "active_header_contains": "Chrome", "min_surface_count": 1, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "type", "match": {"contains": "input \"Address\""}, "text": "chrome://settings/privacy", "expect": {"contains": "COMPUTER", "active_header_contains": "Chrome", "active_header_not_contains": "gnome-shell", "min_surface_count": 1, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "read", "query": "track", "expect": {"contains": "COMPUTER", "active_header_contains": "Chrome", "min_surface_count": 1, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "read", "query": "privacy", "expect": {"contains": "COMPUTER", "active_header_contains": "Chrome", "min_surface_count": 1, "min_element_count": 1, "min_returned_elements": 1}}
+  ]
+}

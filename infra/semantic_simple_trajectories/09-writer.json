@@ -1,0 +1,19 @@
+{
+  "name": "LibreOffice Writer semantics",
+  "coverage": ["libreoffice", "writer", "document", "toolbar", "writer-replace", "writer-insert", "public-type"],
+  "task_path": "OSWorld/evaluation_examples/examples/libreoffice_writer/0810415c-bde4-4443-9047-d5f70165a697.json",
+  "max_tool_calls": 20,
+  "quality_constraints": {"min_chars": 1, "max_chars": 10000, "max_estimated_tokens": 2500, "max_duplicate_lines": 0, "forbid_protocol_jargon": true, "zero_images": true},
+  "steps": [
+    {"op": "read", "expect": {"contains": ["COMPUTER", "LibreOffice"], "active_header_contains": "LibreOffice Writer", "active_header_not_contains": "gnome-shell", "min_surface_count": 1, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "read", "query": "document", "expect": {"contains": "COMPUTER", "active_header_contains": "LibreOffice Writer", "min_surface_count": 1, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "read", "query": "heading Five hints which may be useful in reading a novel:", "expect": {"contains": ["COMPUTER", "Five hints which may be useful in reading a novel:", "type=replace"], "active_header_contains": "LibreOffice Writer", "min_surface_count": 1, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "type", "match": {"contains": "text=\"Five hints which may be useful in reading a novel:\""}, "text": "Five practical hints for reading a novel:", "expect": {"contains": "COMPUTER", "active_header_contains": "LibreOffice Writer", "active_header_not_contains": "gnome-shell", "min_surface_count": 1, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "read", "query": "Five practical hints for reading a novel:", "expect": {"contains": ["COMPUTER", "Five practical hints for reading a novel:", "type=replace"], "active_header_contains": "LibreOffice Writer", "min_surface_count": 1, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "read", "query": "Document end", "expect": {"contains": ["COMPUTER", "Document end", "Append paragraphs without replacing existing text", "type=insert"], "active_header_contains": "LibreOffice Writer", "min_surface_count": 1, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "type", "match": {"contains": "input \"Document end\""}, "text": "Semantic append verification line one\n\nSemantic append verification line three", "expect": {"contains": "COMPUTER", "active_header_contains": "LibreOffice Writer", "active_header_not_contains": "gnome-shell", "min_surface_count": 1, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "read", "query": "Semantic append verification line three", "expect": {"contains": ["COMPUTER", "Semantic append verification line three", "type=replace"], "active_header_contains": "LibreOffice Writer", "min_surface_count": 1, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "read", "query": "Save document", "expect": {"contains": ["COMPUTER", "button \"Save document\"", "click"], "active_header_contains": "modified", "min_surface_count": 1, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "click", "match": {"contains": "button \"Save document\""}, "expect": {"contains": "COMPUTER", "not_contains": "Save document", "active_header_contains": "LibreOffice Writer", "active_header_not_contains": "modified", "min_surface_count": 1, "min_element_count": 1, "min_returned_elements": 1}}
+  ]
+}

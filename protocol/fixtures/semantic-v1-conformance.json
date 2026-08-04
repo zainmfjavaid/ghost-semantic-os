@@ -1,0 +1,139 @@
+{
+  "valid": [
+    {
+      "protocol_version": "1.0",
+      "request_id": "req-query",
+      "episode_id": "episode-1",
+      "operation": "query",
+      "payload": {
+        "resource": "ui.elements",
+        "scope": {},
+        "where": {"op": "eq", "field": "role", "value": "button"},
+        "fields": ["name", "role"],
+        "order_by": [{"field": "name", "direction": "asc"}],
+        "parameters": {},
+        "limit": 30,
+        "freshness": "live"
+      }
+    },
+    {
+      "protocol_version": "1.0",
+      "request_id": "req-act",
+      "episode_id": "episode-1",
+      "operation": "act",
+      "payload": {
+        "target": {"ref": "ref-1"},
+        "action": "invoke",
+        "arguments": {},
+        "preconditions": [],
+        "postconditions": [],
+        "confirm": false
+      }
+    },
+    {
+      "protocol_version": "1.0",
+      "request_id": "req-verify",
+      "episode_id": "episode-1",
+      "operation": "verify",
+      "payload": {
+        "mode": "all",
+        "assertions": [{
+          "claim_id": "saved",
+          "query": {
+            "resource": "document.save_state",
+            "scope": {"document": "active"},
+            "where": {},
+            "order_by": [],
+            "parameters": {},
+            "freshness": "live"
+          },
+          "assert": {"op": "eq", "field": "modified", "value": false}
+        }],
+        "freshness": "live"
+      }
+    },
+    {
+      "protocol_version": "1.0",
+      "request_id": "req-run",
+      "episode_id": "episode-1",
+      "operation": "run",
+      "payload": {"code": "emit(sum([1, 2, 3]))"}
+    },
+    {
+      "protocol_version": "1.0",
+      "request_id": "res-query",
+      "status": "ok",
+      "adapter_id": "universal-atspi@1",
+      "observed_at": "2026-08-02T10:00:00.000Z",
+      "before_revision": "rev-1",
+      "after_revision": "rev-1",
+      "result": {
+        "records": [{"ref": "ref-1", "kind": "ui.element", "name": "Save"}],
+        "next_cursor": null,
+        "truncated": true,
+        "total": 1,
+        "data_handle": "data-result-1"
+      },
+      "provenance": [{"source": "universal-atspi@1", "freshness": "live"}],
+      "error": null
+    },
+    {
+      "protocol_version": "1.0",
+      "request_id": "res-act",
+      "status": "ok",
+      "adapter_id": "universal-atspi@1",
+      "observed_at": "2026-08-02T10:00:01.000Z",
+      "before_revision": "rev-1",
+      "after_revision": "rev-2",
+      "result": {
+        "status": "applied",
+        "execution_path": "accessibility",
+        "receipt_id": "receipt-1",
+        "before_revision": "rev-1",
+        "after_revision": "rev-2",
+        "delta": {},
+        "side_effects": [],
+        "postconditions": [],
+        "error": null
+      },
+      "provenance": [{"source": "universal-atspi@1", "freshness": "live"}],
+      "error": null
+    }
+  ],
+  "invalid": [
+    {
+      "protocol_version": "1.0",
+      "request_id": "bad-extra",
+      "episode_id": "episode-1",
+      "operation": "run",
+      "payload": {"code": "emit(1)", "shell": "uname"}
+    },
+    {
+      "protocol_version": "1.0",
+      "request_id": "bad-image",
+      "episode_id": "episode-1",
+      "operation": "query",
+      "payload": {
+        "resource": "ui.elements",
+        "scope": {},
+        "order_by": [],
+        "parameters": {"image_url": "data:image/png;base64,AAAA"},
+        "freshness": "live"
+      }
+    },
+    {
+      "protocol_version": "1.0",
+      "request_id": "bad-limit",
+      "episode_id": "episode-1",
+      "operation": "query",
+      "payload": {
+        "resource": "ui.elements",
+        "scope": {},
+        "order_by": [],
+        "parameters": {},
+        "limit": 101,
+        "freshness": "live"
+      }
+    }
+  ]
+}

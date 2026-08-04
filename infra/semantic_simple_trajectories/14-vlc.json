@@ -1,0 +1,15 @@
+{
+  "name": "VLC media semantics",
+  "coverage": ["vlc", "media", "playback", "controls", "vlc-play", "vlc-volume", "public-click", "public-type"],
+  "task_path": "OSWorld/evaluation_examples/examples/vlc/59f21cfb-0120-4326-b255-a5b827b38967.json",
+  "max_tool_calls": 20,
+  "quality_constraints": {"min_chars": 1, "max_chars": 10000, "max_estimated_tokens": 2500, "max_duplicate_lines": 0, "forbid_protocol_jargon": true, "zero_images": true},
+  "steps": [
+    {"op": "read", "expect": {"contains": ["COMPUTER", "VLC"], "active_header_contains": "VLC", "active_header_not_contains": "gnome-shell", "min_surface_count": 1, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "read", "query": "button Play", "expect": {"contains": ["COMPUTER", "button \"Play\" click"], "active_header_contains": "VLC", "min_surface_count": 1, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "click", "match": {"contains": "button \"Play\" click"}, "expect": {"contains": "COMPUTER", "active_header_contains": "VLC", "active_header_not_contains": "gnome-shell", "min_surface_count": 1, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "read", "query": "input Volume", "expect": {"contains": ["COMPUTER", "input \"Volume (0–2)\"", "type=replace"], "active_header_contains": "VLC", "min_surface_count": 1, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "type", "match": {"contains": "input \"Volume (0–2)\""}, "text": "1.25", "expect": {"contains": "COMPUTER", "active_header_contains": "VLC", "active_header_not_contains": "gnome-shell", "min_surface_count": 1, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "read", "query": "media", "expect": {"contains": ["COMPUTER", "media \""], "active_header_contains": "VLC", "min_surface_count": 1, "min_element_count": 1, "min_returned_elements": 1}}
+  ]
+}

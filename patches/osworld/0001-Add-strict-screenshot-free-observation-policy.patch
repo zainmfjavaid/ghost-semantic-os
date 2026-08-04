@@ -1,0 +1,184 @@
+From 4eef2290fe45f437310b281d07fcb98a8bb4ff0f Mon Sep 17 00:00:00 2001
+From: zainmfjavaid <zainmfj@gmail.com>
+Date: Sun, 2 Aug 2026 14:03:00 -0700
+Subject: [PATCH 1/6] Add strict screenshot-free observation policy
+
+---
+ desktop_env/desktop_env.py                  |  16 ++-
+ tests/test_desktop_env_screenshot_policy.py | 105 ++++++++++++++++++++
+ 2 files changed, 119 insertions(+), 2 deletions(-)
+ create mode 100644 tests/test_desktop_env_screenshot_policy.py
+
+diff --git a/desktop_env/desktop_env.py b/desktop_env/desktop_env.py
+index cdaf07a..f98e183 100644
+--- a/desktop_env/desktop_env.py
++++ b/desktop_env/desktop_env.py
+@@ -102,6 +102,7 @@ class DesktopEnv(gym.Env):
+             enable_proxy: bool = False,
+             client_password: str = "",
+             vm_secret_mounts: Optional[List[VMSecretMount]] = None,
++            require_screenshot: bool = True,
+     ):
+         """
+         Args:
+@@ -121,6 +122,8 @@ class DesktopEnv(gym.Env):
+             vm_secret_mounts (list): optional local-to-guest secret file mounts,
+               using local_path:guest_path strings, (local_path, guest_path)
+               tuples, or {"local_path": ..., "path": ...} dictionaries.
++            require_screenshot (bool): whether observations and rendering capture
++              screenshots, default to True.
+         """
+         # Initialize VM manager and vitualization provider
+         self.region = region
+@@ -172,6 +175,8 @@ class DesktopEnv(gym.Env):
+         self.headless = headless
+         self.require_a11y_tree = require_a11y_tree
+         self.require_terminal = require_terminal
++        self.require_screenshot = require_screenshot
++        self.screenshot_capture_count = 0
+         self.vm_secret_mounts = _normalize_vm_secret_mounts(vm_secret_mounts)
+ 
+         # Initialize emulator and controller
+@@ -338,12 +343,19 @@ class DesktopEnv(gym.Env):
+         # We provide screenshot, accessibility_tree (optional), terminal (optional), and instruction.
+         # can be customized and scaled
+         return {
+-            "screenshot": self.controller.get_screenshot(),
++            "screenshot": self._capture_screenshot(),
+             "accessibility_tree": self.controller.get_accessibility_tree() if self.require_a11y_tree else None,
+             "terminal": self.controller.get_terminal_output() if self.require_terminal else None,
+             "instruction": self.instruction
+         }
+ 
++    def _capture_screenshot(self):
++        if not self.require_screenshot:
++            return None
++        screenshot = self.controller.get_screenshot()
++        self.screenshot_capture_count += 1
++        return screenshot
++
+     @property
+     def vm_platform(self):
+         return self.controller.get_vm_platform()
+@@ -525,6 +537,6 @@ class DesktopEnv(gym.Env):
+ 
+     def render(self, mode='rgb_array'):
+         if mode == 'rgb_array':
+-            return self.controller.get_screenshot()
++            return self._capture_screenshot()
+         else:
+             raise ValueError('Unsupported render mode: {}'.format(mode))
+diff --git a/tests/test_desktop_env_screenshot_policy.py b/tests/test_desktop_env_screenshot_policy.py
+new file mode 100644
+index 0000000..2ea2f67
+--- /dev/null
++++ b/tests/test_desktop_env_screenshot_policy.py
+@@ -0,0 +1,105 @@
++import importlib.util
++import inspect
++import sys
++import types
++import unittest
++from pathlib import Path
++
++
++def _load_desktop_env():
++    stubs = {
++        "gymnasium": types.SimpleNamespace(Env=object),
++        "desktop_env.controllers.python": types.SimpleNamespace(PythonController=object),
++        "desktop_env.controllers.setup": types.SimpleNamespace(SetupController=object),
++        "desktop_env.evaluators": types.SimpleNamespace(
++            metrics=types.SimpleNamespace(),
++            getters=types.SimpleNamespace(),
++        ),
++        "desktop_env.providers": types.SimpleNamespace(
++            create_vm_manager_and_provider=lambda *_args, **_kwargs: (None, None),
++        ),
++    }
++    previous = {name: sys.modules.get(name) for name in stubs}
++    try:
++        sys.modules.update(stubs)
++        module_path = Path(__file__).parents[1] / "desktop_env" / "desktop_env.py"
++        spec = importlib.util.spec_from_file_location(
++            "desktop_env_screenshot_policy_under_test", module_path
++        )
++        module = importlib.util.module_from_spec(spec)
++        assert spec.loader is not None
++        spec.loader.exec_module(module)
++        return module.DesktopEnv
++    finally:
++        for name, prior in previous.items():
++            if prior is None:
++                sys.modules.pop(name, None)
++            else:
++                sys.modules[name] = prior
++
++
++DesktopEnv = _load_desktop_env()
++
++
++class RecordingController:
++    def __init__(self):
++        self.screenshot_calls = 0
++        self.actions = []
++
++    def get_screenshot(self):
++        self.screenshot_calls += 1
++        return b"screenshot"
++
++    def execute_action(self, action):
++        self.actions.append(action)
++
++
++def _make_env(require_screenshot):
++    env = DesktopEnv.__new__(DesktopEnv)
++    env.require_screenshot = require_screenshot
++    env.screenshot_capture_count = 0
++    env.require_a11y_tree = False
++    env.require_terminal = False
++    env.instruction = "test instruction"
++    env.controller = RecordingController()
++    env.provider_name = "docker"
++    env.snapshot_name = "init_state"
++    env.is_environment_used = False
++    env.enable_proxy = False
++    env.current_use_proxy = False
++    env._traj_no = -1
++    env._step_no = 0
++    env.action_history = []
++    env.action_space = "pyautogui"
++    return env
++
++
++class DesktopEnvScreenshotPolicyTest(unittest.TestCase):
++    def test_strict_mode_reset_and_step_never_capture(self):
++        env = _make_env(require_screenshot=False)
++
++        reset_observation = env.reset()
++        step_observation, _, done, _ = env.step("DONE", pause=0)
++
++        self.assertIsNone(reset_observation["screenshot"])
++        self.assertIsNone(step_observation["screenshot"])
++        self.assertTrue(done)
++        self.assertEqual(env.controller.screenshot_calls, 0)
++        self.assertEqual(env.screenshot_capture_count, 0)
++
++    def test_default_mode_remains_screenshot_compatible_and_counts(self):
++        signature = inspect.signature(DesktopEnv)
++        self.assertIs(signature.parameters["require_screenshot"].default, True)
++        env = _make_env(require_screenshot=True)
++
++        reset_observation = env.reset()
++        step_observation, _, _, _ = env.step("DONE", pause=0)
++
++        self.assertEqual(reset_observation["screenshot"], b"screenshot")
++        self.assertEqual(step_observation["screenshot"], b"screenshot")
++        self.assertEqual(env.controller.screenshot_calls, 2)
++        self.assertEqual(env.screenshot_capture_count, 2)
++
++
++if __name__ == "__main__":
++    unittest.main()
+-- 
+2.50.1 (Apple Git-155)
+

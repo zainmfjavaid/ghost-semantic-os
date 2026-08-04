@@ -1,0 +1,28 @@
+{
+  "name": "Public Chrome Writer Desktop Settings chooser journey",
+  "coverage": ["public-e2e", "chrome", "web-form", "dom-result", "writer", "desktop", "settings", "file-chooser", "surface-switching", "public-click", "public-type"],
+  "task_path": "infra/semantic_simple_trajectories/tasks/public-cross-app-e2e.json",
+  "max_tool_calls": 30,
+  "quality_constraints": {"min_chars": 1, "max_chars": 10000, "max_estimated_tokens": 2500, "max_duplicate_lines": 0, "forbid_protocol_jargon": true, "zero_images": true},
+  "steps": [
+    {"op": "read", "expect": {"contains": ["COMPUTER", "Chrome — Semantic Public Journey", "LibreOffice Writer — Untitled"], "active_header_contains": "LibreOffice Writer", "active_header_not_contains": "gnome-shell", "min_surface_count": 3, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "click", "match": {"contains": "Chrome — Semantic Public Journey"}, "expect": {"contains": ["COMPUTER", "textbox \"Message\"", "button \"Apply message\" click"], "active_header_contains": ["Chrome", "Semantic Public Journey"], "active_header_not_contains": "LibreOffice Writer", "min_surface_count": 3, "min_element_count": 4, "min_returned_elements": 4}},
+    {"op": "read", "query": "textbox Message", "expect": {"contains": ["COMPUTER", "textbox \"Message\" type=replace"], "active_header_contains": "Chrome", "min_surface_count": 3, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "type", "match": {"contains": "textbox \"Message\" type=replace"}, "text": "semantic canary", "expect": {"contains": "COMPUTER", "active_header_contains": "Chrome", "min_surface_count": 3, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "read", "query": "button Apply message", "expect": {"contains": ["COMPUTER", "button \"Apply message\" click"], "active_header_contains": "Chrome", "min_surface_count": 3, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "click", "match": {"contains": "button \"Apply message\" click"}, "expect": {"contains": ["COMPUTER", "Applied: semantic canary"], "active_header_contains": "Chrome", "min_surface_count": 3, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "read", "query": "Applied: semantic canary", "expect": {"contains": ["COMPUTER", "Applied: semantic canary"], "active_header_contains": "Chrome", "min_surface_count": 3, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "click", "match": {"contains": "LibreOffice Writer — Untitled"}, "expect": {"contains": "COMPUTER", "active_header_contains": "LibreOffice Writer", "active_header_not_contains": "gnome-shell", "min_surface_count": 3, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "read", "query": "document", "expect": {"contains": ["COMPUTER", "document \"Untitled"], "active_header_contains": "LibreOffice Writer", "min_surface_count": 3, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "click", "match": {"contains": "[A] Desktop"}, "expect": {"contains": "COMPUTER", "active_header_contains": "Desktop", "min_surface_count": 3, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "read", "query": "Settings", "expect": {"contains": ["COMPUTER", "application \"Settings\" click"], "active_header_contains": "Desktop", "min_surface_count": 3, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "click", "match": {"contains": "application \"Settings\" click"}, "expect": {"contains": ["COMPUTER", "Settings"], "active_header_contains": "Settings", "active_header_not_contains": "Desktop", "min_surface_count": 4, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "read", "expect": {"contains": ["COMPUTER", "Settings", "Chrome — Semantic Public Journey"], "active_header_contains": "Settings", "min_surface_count": 4, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "click", "match": {"contains": "Chrome — Semantic Public Journey"}, "expect": {"contains": "COMPUTER", "active_header_contains": ["Chrome", "Semantic Public Journey"], "active_header_not_contains": "Settings", "min_surface_count": 4, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "read", "query": "button Attach fixture file", "expect": {"contains": ["COMPUTER", "button \"Attach fixture file\""], "active_header_contains": "Chrome", "min_surface_count": 4, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "click", "match": {"contains": "button \"Attach fixture file\""}, "expect": {"contains": ["COMPUTER", "Choose exact guest path"], "active_header_not_contains": "Chrome — Semantic Public Journey", "min_surface_count": 4, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "read", "query": "Choose exact guest path", "expect": {"contains": ["COMPUTER", "input \"Choose exact guest path\" type=replace"], "min_surface_count": 4, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "type", "match": {"contains": "input \"Choose exact guest path\" type=replace"}, "text": "/home/user/share/semantic-upload.txt", "expect": {"contains": ["COMPUTER", "Uploaded: semantic-upload.txt"], "active_header_contains": "Chrome", "min_surface_count": 4, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "read", "query": "Uploaded: semantic-upload.txt", "expect": {"contains": ["COMPUTER", "Uploaded: semantic-upload.txt"], "active_header_contains": ["Chrome", "Semantic Public Journey"], "min_surface_count": 4, "min_element_count": 1, "min_returned_elements": 1}}
+  ]
+}

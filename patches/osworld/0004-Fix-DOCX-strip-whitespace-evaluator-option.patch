@@ -1,0 +1,41 @@
+From 7323a67dc88b6550e47a91b39dedc4fa61d7a165 Mon Sep 17 00:00:00 2001
+From: zainmfjavaid <zainmfj@gmail.com>
+Date: Sun, 2 Aug 2026 19:37:51 -0700
+Subject: [PATCH 4/6] Fix DOCX strip-whitespace evaluator option
+
+---
+ desktop_env/evaluators/metrics/docs.py | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+
+diff --git a/desktop_env/evaluators/metrics/docs.py b/desktop_env/evaluators/metrics/docs.py
+index ddd509c..6e95374 100644
+--- a/desktop_env/evaluators/metrics/docs.py
++++ b/desktop_env/evaluators/metrics/docs.py
+@@ -163,6 +163,7 @@ def compare_docx_files(file1, file2, **options):
+     content_only = options.get('content_only', False)
+     fuzzy_match = options.get('fuzzy_match', False)
+     delete_empty_lines = options.get('delete_empty_lines', False)
++    strip_whitespace = options.get('strip_whitespace', False)
+ 
+     if not file1 or not file2:
+         return 0
+@@ -219,6 +220,16 @@ def compare_docx_files(file1, file2, **options):
+         print("Unsupported file types or mismatch between file types.")
+         return 0
+ 
++    # Several published OSWorld tasks explicitly request this option, but the
++    # metric previously accepted and ignored it. That converted semantically
++    # identical Writer documents into hard zeroes for incidental run-edge
++    # spaces. Preserve empty paragraphs while stripping each paragraph's edge
++    # whitespace; blank-line cardinality remains part of the comparison when
++    # ignore_blanks is false.
++    if strip_whitespace:
++        doc1_paragraphs = [paragraph.strip() for paragraph in doc1_paragraphs]
++        doc2_paragraphs = [paragraph.strip() for paragraph in doc2_paragraphs]
++
+     if content_only:
+         # Compare the content of the documents
+         text1 = re.sub(r'\s+', ' ', '\n'.join(doc1_paragraphs)).strip()
+-- 
+2.50.1 (Apple Git-155)
+

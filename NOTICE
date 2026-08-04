@@ -1,0 +1,10 @@
+Ghost Semantic OS
+Copyright 2026 Ghost
+
+This distribution includes patches for OSWorld, which is distributed under
+the Apache License 2.0 by its respective authors and contributors.
+
+An Apache-licensed snapshot of the exact OSWorld base source tree is included
+because upstream no longer advertises the frozen commit. The upstream URL,
+base and final tree IDs, snapshot hash, and patch-series hashes are recorded in
+patches/osworld/manifest.json.

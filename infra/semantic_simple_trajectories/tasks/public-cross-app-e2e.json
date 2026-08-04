@@ -1,0 +1,80 @@
+{
+  "id": "a60e4d4c-e51a-42f9-94fb-a0dc86896354",
+  "snapshot": "chrome",
+  "instruction": "Exercise the staged cross-application fixture through only the public computer surface.",
+  "source": "ghost-semantic-model-free-fixture",
+  "config": [
+    {
+      "type": "execute",
+      "parameters": {
+        "command": [
+          "bash",
+          "-lc",
+          "mkdir -p /home/user/share && printf %s PCFkb2N0eXBlIGh0bWw+CjxodG1sIGxhbmc9ImVuIj4KPGhlYWQ+PG1ldGEgY2hhcnNldD0idXRmLTgiPjx0aXRsZT5TZW1hbnRpYyBQdWJsaWMgSm91cm5leTwvdGl0bGU+PC9oZWFkPgo8Ym9keT4KICA8bWFpbj4KICAgIDxoMT5TZW1hbnRpYyBwdWJsaWMgam91cm5leTwvaDE+CiAgICA8cD5Db21wYWN0IGxvY2FsIGZpeHR1cmUgZm9yIHB1YmxpYyBjb21wdXRlciBhY3Rpb25zLjwvcD4KICAgIDxsYWJlbCBmb3I9Im1lc3NhZ2UiPk1lc3NhZ2U8L2xhYmVsPgogICAgPGlucHV0IGlkPSJtZXNzYWdlIiB0eXBlPSJ0ZXh0IiBhcmlhLWxhYmVsPSJNZXNzYWdlIj4KICAgIDxidXR0b24gaWQ9ImFwcGx5IiB0eXBlPSJidXR0b24iIG9uY2xpY2s9ImRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdyZXN1bHQnKS50ZXh0Q29udGVudD0nQXBwbGllZDogJytkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnbWVzc2FnZScpLnZhbHVlIj5BcHBseSBtZXNzYWdlPC9idXR0b24+CiAgICA8cCBpZD0icmVzdWx0IiByb2xlPSJzdGF0dXMiIGFyaWEtbGl2ZT0icG9saXRlIj5XYWl0aW5nIGZvciBtZXNzYWdlPC9wPgogICAgPGxhYmVsIGZvcj0idXBsb2FkIj5GaXh0dXJlIHVwbG9hZDwvbGFiZWw+CiAgICA8aW5wdXQgaWQ9InVwbG9hZCIgdHlwZT0iZmlsZSIgYXJpYS1sYWJlbD0iQXR0YWNoIGZpeHR1cmUgZmlsZSIgb25jaGFuZ2U9ImRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCd1cGxvYWQtcmVzdWx0JykudGV4dENvbnRlbnQ9J1VwbG9hZGVkOiAnKyh0aGlzLmZpbGVzWzBdPy5uYW1lIHx8ICdub25lJykiPgogICAgPHAgaWQ9InVwbG9hZC1yZXN1bHQiIHJvbGU9InN0YXR1cyIgYXJpYS1saXZlPSJwb2xpdGUiPk5vIGZpbGUgdXBsb2FkZWQ8L3A+CiAgPC9tYWluPgo8L2JvZHk+CjwvaHRtbD4K | base64 -d > /home/user/share/semantic-public-journey.html && printf 'semantic upload fixture\n' > /home/user/share/semantic-upload.txt"
+        ]
+      }
+    },
+    {
+      "type": "launch",
+      "parameters": {
+        "command": [
+          "libreoffice",
+          "--writer"
+        ]
+      }
+    },
+    {
+      "type": "launch",
+      "parameters": {
+        "command": [
+          "google-chrome",
+          "--remote-debugging-port=1337",
+          "--no-first-run",
+          "--no-default-browser-check",
+          "--allow-file-access-from-files",
+          "file:///home/user/share/semantic-public-journey.html"
+        ]
+      }
+    },
+    {
+      "type": "launch",
+      "parameters": {
+        "command": [
+          "socat",
+          "tcp-listen:9222,fork,reuseaddr",
+          "tcp:localhost:1337"
+        ]
+      }
+    },
+    {
+      "type": "activate_window",
+      "parameters": {
+        "window_name": "Google Chrome"
+      }
+    },
+    {
+      "type": "sleep",
+      "parameters": {
+        "seconds": 1.0
+      }
+    },
+    {
+      "type": "activate_window",
+      "parameters": {
+        "window_name": "Google Chrome"
+      }
+    }
+  ],
+  "trajectory": "trajectories/",
+  "related_apps": [
+    "chrome",
+    "libreoffice_writer",
+    "os"
+  ],
+  "evaluator": {
+    "func": "infeasible"
+  },
+  "proxy": false,
+  "fixed_ip": false,
+  "possibility_of_env_change": "low"
+}

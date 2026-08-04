@@ -1,0 +1,32 @@
+{
+  "dependencies": {
+    "node_lock_sha256": "e208457be56743cf5ea9112997c523ad5854fa7d3a44ad5cc23a2426e3a351bf",
+    "python_ci_lock_sha256": "72620c596335e43152a119bd368834a533ad4b01577bceb395e39c285425e9b6",
+    "python_host_lock_sha256": "702a6ff0d503041c0731b04f0e817d5e8a9a5072c17f93ba9eb21182b16fe0ac"
+  },
+  "docker_image": "happysixd/osworld-docker@sha256:0e6497a9295647cf05bf2b2af522fdd79bdeba2737595259cab310a3bcf6baa9",
+  "license": "Apache-2.0",
+  "model_facing_tools": [
+    "read_computer",
+    "computer_click",
+    "computer_type"
+  ],
+  "osworld": {
+    "base_commit": "fad6d07f0a3ad456e7d966dcc98a7fee2491afe0",
+    "base_snapshot": {
+      "file": "osworld-base-fad6d07f.tar.gz",
+      "sha256": "f6a10757019a7cf93bdf06960b488a77e011e3b03a064152504ffbaf2bdb1176"
+    },
+    "base_tree": "243a6c338443da81c973bf280d033e5f76c08e80",
+    "canonical_final_commit": "d3781e929734efdc877fa6bfc5370e669570914c",
+    "final_tree": "76331b18181423ee60ec613c1475b2d8300b7b03",
+    "patch_manifest_sha256": "f98f8ec3991e63ddbc016b62603f78dd66bffd80236cb79f6e00e294af349f97",
+    "upstream": "https://github.com/xlang-ai/OSWorld.git"
+  },
+  "release": "0.1.0",
+  "runtime_file_manifest_sha256": "be7e0cc7babb2f07fbf302dff6098122b2dd1a7c1dc44cd6ba7e2dcbffd5fb05",
+  "schema_version": 1,
+  "semantic_protocol_version": "1.0",
+  "server_file_manifest_sha256": "9ba280f0b6c5c1f628011242f6ac10aa298279f69b8439ed3cbd6b07e275b8d6",
+  "supported_runtime": "semantic-simple-v1"
+}

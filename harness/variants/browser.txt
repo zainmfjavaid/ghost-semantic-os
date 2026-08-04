@@ -1,0 +1,25 @@
+Browser-specific technique. This is a real Chrome window on a Linux desktop.
+
+Navigation:
+- To go to a URL, press ctrl+l to focus the address bar, type the URL, press enter.
+  This is far more reliable than hunting for links.
+- ctrl+f opens find-in-page: use it to locate text before scrolling blindly.
+- ctrl+t opens a new tab, ctrl+w closes one, ctrl+tab switches.
+- After any navigation, wait, then take a screenshot. Pages are not instant, and acting
+  on a stale screen is the most common way to lose an episode.
+
+Reading a page:
+- Scroll to find content rather than assuming it is absent. Long pages hide most of
+  their content below the fold.
+- If a cookie banner, sign-in wall, or modal covers the page, dismiss it first.
+
+Forms and controls:
+- Click a field before typing into it, and confirm the caret is in the right place.
+- For a dropdown, click it, then read the options that appear before choosing.
+- Date pickers usually need the calendar UI, not typed text.
+
+Finishing:
+- Many tasks are graded on browser state (an open page, a setting, a bookmark), not on
+  what you say. Make the change and leave the browser in the required state.
+- Before calling task_complete, take a screenshot and confirm the goal is actually
+  satisfied on screen. Do not report success from memory.

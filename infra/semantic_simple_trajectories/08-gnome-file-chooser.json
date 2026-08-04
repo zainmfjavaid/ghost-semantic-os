@@ -1,0 +1,59 @@
+{
+  "name": "Real GTK file chooser read-only semantics",
+  "coverage": [
+    "gnome",
+    "file-chooser",
+    "gtk",
+    "native-dialog-representation"
+  ],
+  "read_only_gaps": [
+    {
+      "capability": "zenity-file-selection-exact-path",
+      "status": "representation_gap",
+      "reason": "Zenity does not expose a trustworthy existing-path mode through the current file-chooser observation; the facade must show its visible buttons and an honest read-only note instead of inventing a path action. Exact existing-path entry is exercised separately by the real portal chooser in fixture 19."
+    }
+  ],
+  "task_path": "infra/semantic_simple_trajectories/tasks/gtk-file-chooser.json",
+  "max_tool_calls": 20,
+  "quality_constraints": {
+    "min_chars": 1,
+    "max_chars": 10000,
+    "max_estimated_tokens": 2500,
+    "max_duplicate_lines": 0,
+    "forbid_protocol_jargon": true,
+    "zero_images": true
+  },
+  "steps": [
+    {
+      "op": "read",
+      "expect": {
+        "contains": [
+          "COMPUTER",
+          "Semantic File Chooser Fixture",
+          "Exact path shortcut unavailable",
+          "button"
+        ],
+        "active_header_contains": "Semantic File Chooser Fixture",
+        "active_header_not_contains": "gnome-shell",
+        "min_surface_count": 1,
+        "min_element_count": 1,
+        "min_returned_elements": 1
+      }
+    },
+    {
+      "op": "read",
+      "query": "button",
+      "expect": {
+        "contains": [
+          "COMPUTER",
+          "Semantic File Chooser Fixture",
+          "button"
+        ],
+        "active_header_contains": "Semantic File Chooser Fixture",
+        "min_surface_count": 1,
+        "min_element_count": 1,
+        "min_returned_elements": 1
+      }
+    }
+  ]
+}

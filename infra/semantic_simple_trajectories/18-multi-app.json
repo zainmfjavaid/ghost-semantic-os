@@ -1,0 +1,19 @@
+{
+  "name": "Writer Calc Files multi-app semantics",
+  "startup_active_surface_nondeterministic": true,
+  "coverage": ["multi-app", "writer", "calc", "files", "surface-switching", "exact-surface-switching", "public-click"],
+  "task_path": "OSWorld/evaluation_examples/examples/multi_apps/aceb0368-56b8-4073-b70e-3dc9aee184e0.json",
+  "max_tool_calls": 20,
+  "quality_constraints": {"min_chars": 1, "max_chars": 10000, "max_estimated_tokens": 2500, "max_duplicate_lines": 0, "forbid_protocol_jargon": true, "zero_images": true},
+  "steps": [
+    {"op": "read", "expect": {"contains": ["COMPUTER", "Surfaces", "— exam", "grades.xlsx", "ReferenceAnswers.docx"], "active_header_not_contains": "gnome-shell", "min_surface_count": 3, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "click", "match": {"contains": "— exam"}, "expect": {"contains": "COMPUTER", "active_header_contains": "exam", "active_header_not_contains": "gnome-shell", "min_surface_count": 3, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "read", "query": "answer_sheet", "expect": {"contains": ["COMPUTER", "answer_sheet"], "active_header_contains": "exam", "min_surface_count": 3, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "click", "match": {"contains": "grades.xlsx"}, "expect": {"contains": "COMPUTER", "active_header_contains": "LibreOffice Calc", "active_header_not_contains": "gnome-shell", "min_surface_count": 3, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "read", "query": "A1:E8", "expect": {"contains": "COMPUTER", "active_header_contains": "LibreOffice Calc", "min_surface_count": 3, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "click", "match": {"contains": "ReferenceAnswers.docx"}, "expect": {"contains": "COMPUTER", "active_header_contains": "LibreOffice Writer", "active_header_not_contains": "gnome-shell", "min_surface_count": 3, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "read", "query": "document", "expect": {"contains": "COMPUTER", "active_header_contains": "LibreOffice Writer", "min_surface_count": 3, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "click", "match": {"contains": "— exam"}, "expect": {"contains": "COMPUTER", "active_header_contains": "exam", "active_header_not_contains": "gnome-shell", "min_surface_count": 3, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "read", "query": "answer_sheet", "expect": {"contains": ["COMPUTER", "answer_sheet"], "active_header_contains": "exam", "min_surface_count": 3, "min_element_count": 1, "min_returned_elements": 1}}
+  ]
+}

@@ -1,0 +1,4165 @@
+From 8333b7951a5abdfbeea8723438b6c3089bf8c607 Mon Sep 17 00:00:00 2001
+From: zainmfjavaid <zainmfj@gmail.com>
+Date: Sun, 2 Aug 2026 14:49:30 -0700
+Subject: [PATCH 3/6] Align application inventory with semantic adapter IDs
+
+---
+ protocol/linux-app-inventory.json | 1342 ++++++++++++++---------------
+ 1 file changed, 671 insertions(+), 671 deletions(-)
+
+diff --git a/protocol/linux-app-inventory.json b/protocol/linux-app-inventory.json
+index 8771cab..c742096 100644
+--- a/protocol/linux-app-inventory.json
++++ b/protocol/linux-app-inventory.json
+@@ -16,8 +16,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -82,9 +82,9 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "gnome-os@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -128,9 +128,9 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "gnome-os@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "guest-os@1",
+         "media-metadata@1",
+         "universal-atspi@1"
+       ],
+@@ -158,10 +158,10 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "gnome-os@1",
+-        "libreoffice-calc-uno@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "three_apps",
+@@ -194,10 +194,10 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "gnome-os@1",
+-        "libreoffice-uno@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "three_apps",
+@@ -222,10 +222,10 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "gnome-os@1",
+-        "libreoffice-writer-uno@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "three_apps",
+@@ -257,9 +257,9 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "gnome-os@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "guest-os@1",
+         "universal-atspi@1",
+         "vscode-ghost-extension@1"
+       ],
+@@ -286,9 +286,9 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "libreoffice-calc-uno@1"
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "two_apps",
+       "canonical_app_count": 2,
+@@ -316,10 +316,10 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "libreoffice-calc-uno@1",
+-        "libreoffice-writer-uno@1"
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "libreoffice.uno@1",
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "three_apps",
+       "canonical_app_count": 3,
+@@ -343,9 +343,9 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "libreoffice-writer-uno@1"
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "two_apps",
+       "canonical_app_count": 2,
+@@ -370,8 +370,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
+         "pdf-evince@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -394,8 +394,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
+         "thunderbird-extension@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -471,7 +471,7 @@
+     {
+       "adapter_ids": [
+         "gimp-pdb@1",
+-        "gnome-os@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -499,8 +499,8 @@
+     {
+       "adapter_ids": [
+         "gimp-pdb@1",
+-        "gnome-os@1",
+-        "libreoffice-impress-uno@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "three_apps",
+@@ -528,8 +528,8 @@
+     {
+       "adapter_ids": [
+         "gimp-pdb@1",
+-        "gnome-os@1",
+-        "libreoffice-writer-uno@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "three_apps",
+@@ -558,7 +558,7 @@
+     {
+       "adapter_ids": [
+         "gimp-pdb@1",
+-        "gnome-os@1",
++        "guest-os@1",
+         "pdf-evince@1",
+         "universal-atspi@1"
+       ],
+@@ -637,7 +637,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "single_app",
+@@ -681,7 +681,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "media-metadata@1",
+         "universal-atspi@1"
+       ],
+@@ -707,8 +707,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
+-        "libreoffice-calc-uno@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "media-metadata@1",
+         "pdf-evince@1",
+         "universal-atspi@1"
+@@ -739,8 +739,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
+-        "libreoffice-calc-uno@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -771,10 +771,10 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
+-        "libreoffice-calc-uno@1",
+-        "libreoffice-impress-uno@1",
+-        "libreoffice-writer-uno@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
++        "libreoffice.uno@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "four_plus_apps",
+@@ -801,9 +801,9 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
+-        "libreoffice-calc-uno@1",
+-        "libreoffice-writer-uno@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "three_apps",
+@@ -829,8 +829,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
+-        "libreoffice-calc-uno@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "pdf-evince@1",
+         "universal-atspi@1"
+       ],
+@@ -856,8 +856,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
+-        "libreoffice-calc-uno@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "thunderbird-extension@1",
+         "universal-atspi@1"
+       ],
+@@ -884,9 +884,9 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
+-        "libreoffice-impress-uno@1",
+-        "libreoffice-writer-uno@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "three_apps",
+@@ -911,8 +911,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
+-        "libreoffice-writer-uno@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -938,8 +938,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
+-        "libreoffice-writer-uno@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1",
+         "vscode-ghost-extension@1"
+       ],
+@@ -965,7 +965,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "mpris-media@1",
+         "universal-atspi@1",
+         "vlc-mpris-http@1"
+@@ -992,7 +992,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "pdf-evince@1",
+         "universal-atspi@1"
+       ],
+@@ -1016,7 +1016,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "picard-media@1",
+         "universal-atspi@1"
+       ],
+@@ -1040,7 +1040,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "sandboxed-process@1",
+         "universal-atspi@1"
+       ],
+@@ -1065,7 +1065,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "thunderbird-extension@1",
+         "universal-atspi@1"
+       ],
+@@ -1090,7 +1090,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "universal-atspi@1",
+         "vlc-mpris-http@1"
+       ],
+@@ -1114,7 +1114,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "universal-atspi@1",
+         "vscode-ghost-extension@1"
+       ],
+@@ -1144,7 +1144,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -1213,9 +1213,9 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1",
+-        "libreoffice-impress-uno@1",
+-        "libreoffice-writer-uno@1",
++        "libreoffice.uno@1",
++        "libreoffice.uno@1",
++        "libreoffice.uno@1",
+         "vlc-mpris-http@1"
+       ],
+       "app_count_difficulty": "four_plus_apps",
+@@ -1242,8 +1242,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1",
+-        "libreoffice-writer-uno@1"
++        "libreoffice.uno@1",
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "two_apps",
+       "canonical_app_count": 2,
+@@ -1265,7 +1265,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1",
++        "libreoffice.uno@1",
+         "sandboxed-process@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -1289,7 +1289,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1",
++        "libreoffice.uno@1",
+         "thunderbird-extension@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -1313,7 +1313,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1",
++        "libreoffice.uno@1",
+         "vscode-ghost-extension@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -1336,7 +1336,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -1402,8 +1402,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1",
+-        "libreoffice-writer-uno@1"
++        "libreoffice.uno@1",
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "two_apps",
+       "canonical_app_count": 2,
+@@ -1426,7 +1426,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1",
++        "libreoffice.uno@1",
+         "vlc-mpris-http@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -1450,7 +1450,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-writer-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -1493,7 +1493,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-writer-uno@1",
++        "libreoffice.uno@1",
+         "sandboxed-process@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -1517,7 +1517,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-writer-uno@1",
++        "libreoffice.uno@1",
+         "vscode-ghost-extension@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -1677,8 +1677,8 @@
+   "canonical_families": [
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "canonical_id": "chrome",
+       "raw_identifiers": [
+@@ -1834,7 +1834,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "canonical_id": "gnome_os",
+@@ -1953,7 +1953,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "canonical_id": "libreoffice_calc",
+       "raw_identifiers": [
+@@ -2046,7 +2046,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "canonical_id": "libreoffice_impress",
+       "raw_identifiers": [
+@@ -2114,7 +2114,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "canonical_id": "libreoffice_suite",
+       "raw_identifiers": [
+@@ -2128,7 +2128,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-writer-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "canonical_id": "libreoffice_writer",
+       "raw_identifiers": [
+@@ -2800,9 +2800,9 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "gnome-os@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -2824,10 +2824,10 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "gnome-os@1",
+-        "libreoffice-writer-uno@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "three_apps",
+@@ -2851,9 +2851,9 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "gnome-os@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -2875,10 +2875,10 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "gnome-os@1",
+-        "libreoffice-calc-uno@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "three_apps",
+@@ -2902,8 +2902,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
+-        "libreoffice-calc-uno@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -2925,8 +2925,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -2990,9 +2990,9 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "gnome-os@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "guest-os@1",
+         "media-metadata@1",
+         "universal-atspi@1"
+       ],
+@@ -3019,10 +3019,10 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "gnome-os@1",
+-        "libreoffice-uno@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "three_apps",
+@@ -3046,9 +3046,9 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "libreoffice-calc-uno@1"
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "two_apps",
+       "canonical_app_count": 2,
+@@ -3075,10 +3075,10 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "libreoffice-calc-uno@1",
+-        "libreoffice-writer-uno@1"
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "libreoffice.uno@1",
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "three_apps",
+       "canonical_app_count": 3,
+@@ -3101,10 +3101,10 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "gnome-os@1",
+-        "libreoffice-calc-uno@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "three_apps",
+@@ -3130,9 +3130,9 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "libreoffice-writer-uno@1"
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "two_apps",
+       "canonical_app_count": 2,
+@@ -3156,9 +3156,9 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "gnome-os@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -3191,9 +3191,9 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "gnome-os@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "guest-os@1",
+         "universal-atspi@1",
+         "vscode-ghost-extension@1"
+       ],
+@@ -3219,10 +3219,10 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "gnome-os@1",
+-        "libreoffice-writer-uno@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "three_apps",
+@@ -3247,8 +3247,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
+         "pdf-evince@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -3270,8 +3270,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
+         "thunderbird-extension@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -3345,8 +3345,8 @@
+     {
+       "adapter_ids": [
+         "gimp-pdb@1",
+-        "gnome-os@1",
+-        "libreoffice-impress-uno@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "three_apps",
+@@ -3373,8 +3373,8 @@
+     {
+       "adapter_ids": [
+         "gimp-pdb@1",
+-        "gnome-os@1",
+-        "libreoffice-writer-uno@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "three_apps",
+@@ -3402,7 +3402,7 @@
+     {
+       "adapter_ids": [
+         "gimp-pdb@1",
+-        "gnome-os@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -3429,7 +3429,7 @@
+     {
+       "adapter_ids": [
+         "gimp-pdb@1",
+-        "gnome-os@1",
++        "guest-os@1",
+         "pdf-evince@1",
+         "universal-atspi@1"
+       ],
+@@ -3505,8 +3505,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
+-        "libreoffice-calc-uno@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "media-metadata@1",
+         "pdf-evince@1",
+         "universal-atspi@1"
+@@ -3536,7 +3536,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "media-metadata@1",
+         "universal-atspi@1"
+       ],
+@@ -3561,7 +3561,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -3597,7 +3597,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -3644,10 +3644,10 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
+-        "libreoffice-calc-uno@1",
+-        "libreoffice-impress-uno@1",
+-        "libreoffice-writer-uno@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
++        "libreoffice.uno@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "four_plus_apps",
+@@ -3673,9 +3673,9 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1",
+-        "libreoffice-impress-uno@1",
+-        "libreoffice-writer-uno@1",
++        "libreoffice.uno@1",
++        "libreoffice.uno@1",
++        "libreoffice.uno@1",
+         "vlc-mpris-http@1"
+       ],
+       "app_count_difficulty": "four_plus_apps",
+@@ -3701,8 +3701,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1",
+-        "libreoffice-writer-uno@1"
++        "libreoffice.uno@1",
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "two_apps",
+       "canonical_app_count": 2,
+@@ -3723,9 +3723,9 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
+-        "libreoffice-calc-uno@1",
+-        "libreoffice-writer-uno@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "three_apps",
+@@ -3750,8 +3750,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
+-        "libreoffice-calc-uno@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -3776,8 +3776,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
+-        "libreoffice-calc-uno@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "pdf-evince@1",
+         "universal-atspi@1"
+       ],
+@@ -3802,8 +3802,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
+-        "libreoffice-calc-uno@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "thunderbird-extension@1",
+         "universal-atspi@1"
+       ],
+@@ -3829,7 +3829,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1",
++        "libreoffice.uno@1",
+         "sandboxed-process@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -3852,7 +3852,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1",
++        "libreoffice.uno@1",
+         "thunderbird-extension@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -3875,7 +3875,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1",
++        "libreoffice.uno@1",
+         "vscode-ghost-extension@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -3897,7 +3897,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -3962,8 +3962,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1",
+-        "libreoffice-writer-uno@1"
++        "libreoffice.uno@1",
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "two_apps",
+       "canonical_app_count": 2,
+@@ -3985,9 +3985,9 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
+-        "libreoffice-impress-uno@1",
+-        "libreoffice-writer-uno@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "three_apps",
+@@ -4011,7 +4011,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1",
++        "libreoffice.uno@1",
+         "vlc-mpris-http@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -4034,7 +4034,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-writer-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -4076,8 +4076,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
+-        "libreoffice-writer-uno@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -4102,8 +4102,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
+-        "libreoffice-writer-uno@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1",
+         "vscode-ghost-extension@1"
+       ],
+@@ -4128,7 +4128,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-writer-uno@1",
++        "libreoffice.uno@1",
+         "sandboxed-process@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -4151,7 +4151,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-writer-uno@1",
++        "libreoffice.uno@1",
+         "vscode-ghost-extension@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -4173,7 +4173,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "single_app",
+@@ -4216,7 +4216,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "pdf-evince@1",
+         "universal-atspi@1"
+       ],
+@@ -4239,7 +4239,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "picard-media@1",
+         "universal-atspi@1"
+       ],
+@@ -4262,7 +4262,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "sandboxed-process@1",
+         "universal-atspi@1"
+       ],
+@@ -4286,7 +4286,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "thunderbird-extension@1",
+         "universal-atspi@1"
+       ],
+@@ -4310,7 +4310,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "mpris-media@1",
+         "universal-atspi@1",
+         "vlc-mpris-http@1"
+@@ -4336,7 +4336,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "universal-atspi@1",
+         "vlc-mpris-http@1"
+       ],
+@@ -4359,7 +4359,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "universal-atspi@1",
+         "vscode-ghost-extension@1"
+       ],
+@@ -4383,7 +4383,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "universal-atspi@1",
+         "vscode-ghost-extension@1"
+       ],
+@@ -4539,8 +4539,8 @@
+   "raw_identifiers": [
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "canonical_id": "chrome",
+       "normalized_identifier": "chrome",
+@@ -4553,7 +4553,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "canonical_id": "gnome_os",
+@@ -4567,7 +4567,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-writer-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "canonical_id": "libreoffice_writer",
+       "normalized_identifier": "writer",
+@@ -4580,8 +4580,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "canonical_id": "chrome",
+       "normalized_identifier": "browser",
+@@ -4594,7 +4594,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "canonical_id": "libreoffice_calc",
+       "normalized_identifier": "calc",
+@@ -4608,8 +4608,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "canonical_id": "chrome",
+       "normalized_identifier": "chrome",
+@@ -4776,7 +4776,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "canonical_id": "libreoffice_suite",
+       "normalized_identifier": "libreoffice",
+@@ -4789,7 +4789,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "canonical_id": "libreoffice_calc",
+       "normalized_identifier": "libreoffice_calc",
+@@ -4819,7 +4819,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "canonical_id": "libreoffice_calc",
+       "normalized_identifier": "libreoffice_calc",
+@@ -4889,7 +4889,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "canonical_id": "libreoffice_impress",
+       "normalized_identifier": "libreoffice_impress",
+@@ -4956,7 +4956,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-writer-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "canonical_id": "libreoffice_writer",
+       "normalized_identifier": "libreoffice_writer",
+@@ -5015,7 +5015,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "canonical_id": "gnome_os",
+@@ -5307,7 +5307,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-writer-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "canonical_id": "libreoffice_writer",
+       "normalized_identifier": "writer",
+@@ -5340,9 +5340,9 @@
+   "tasks": [
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
+-        "libreoffice-calc-uno@1",
+-        "libreoffice-writer-uno@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "three_apps",
+@@ -5365,7 +5365,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -5383,8 +5383,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
+-        "libreoffice-writer-uno@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -5405,8 +5405,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -5424,7 +5424,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -5442,7 +5442,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -5460,7 +5460,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -5498,7 +5498,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -5534,7 +5534,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -5572,8 +5572,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -5591,7 +5591,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-writer-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -5609,7 +5609,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -5646,8 +5646,8 @@
+     {
+       "adapter_ids": [
+         "gimp-pdb@1",
+-        "gnome-os@1",
+-        "libreoffice-writer-uno@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "three_apps",
+@@ -5672,7 +5672,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-writer-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -5690,7 +5690,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -5708,7 +5708,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -5726,7 +5726,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-writer-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -5744,7 +5744,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -5762,10 +5762,10 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "gnome-os@1",
+-        "libreoffice-calc-uno@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "three_apps",
+@@ -5788,7 +5788,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -5806,8 +5806,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -5825,7 +5825,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-writer-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -5843,9 +5843,9 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "gnome-os@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -5866,7 +5866,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-writer-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -5902,7 +5902,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -5938,8 +5938,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -5957,8 +5957,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -5976,7 +5976,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -5994,7 +5994,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -6012,7 +6012,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -6030,7 +6030,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "single_app",
+@@ -6049,7 +6049,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -6085,8 +6085,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -6104,8 +6104,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
+-        "libreoffice-calc-uno@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "pdf-evince@1",
+         "universal-atspi@1"
+       ],
+@@ -6129,7 +6129,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -6147,7 +6147,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -6165,7 +6165,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -6183,7 +6183,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -6201,8 +6201,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
+-        "libreoffice-writer-uno@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -6223,8 +6223,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
+-        "libreoffice-writer-uno@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1",
+         "vscode-ghost-extension@1"
+       ],
+@@ -6266,7 +6266,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -6284,7 +6284,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -6302,7 +6302,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -6321,8 +6321,8 @@
+     {
+       "adapter_ids": [
+         "gimp-pdb@1",
+-        "gnome-os@1",
+-        "libreoffice-writer-uno@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "three_apps",
+@@ -6347,9 +6347,9 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "libreoffice-writer-uno@1"
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "two_apps",
+       "canonical_app_count": 2,
+@@ -6369,7 +6369,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "single_app",
+@@ -6388,9 +6388,9 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "libreoffice-writer-uno@1"
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "two_apps",
+       "canonical_app_count": 2,
+@@ -6410,8 +6410,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
+-        "libreoffice-calc-uno@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -6432,7 +6432,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "universal-atspi@1",
+         "vscode-ghost-extension@1"
+       ],
+@@ -6454,9 +6454,9 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "gnome-os@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -6477,7 +6477,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -6513,8 +6513,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -6532,7 +6532,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "single_app",
+@@ -6571,8 +6571,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -6590,8 +6590,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -6609,7 +6609,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-writer-uno@1",
++        "libreoffice.uno@1",
+         "sandboxed-process@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -6630,7 +6630,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -6648,7 +6648,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -6680,7 +6680,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "sandboxed-process@1",
+         "universal-atspi@1"
+       ],
+@@ -6702,7 +6702,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -6763,7 +6763,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -6781,7 +6781,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -6799,8 +6799,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -6818,7 +6818,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "pdf-evince@1",
+         "universal-atspi@1"
+       ],
+@@ -6840,7 +6840,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -6858,8 +6858,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -6877,7 +6877,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -6895,7 +6895,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -6913,9 +6913,9 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "gnome-os@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -6936,7 +6936,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1",
++        "libreoffice.uno@1",
+         "sandboxed-process@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -6957,8 +6957,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -6976,8 +6976,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -6995,7 +6995,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -7013,7 +7013,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "single_app",
+@@ -7070,7 +7070,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -7088,7 +7088,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -7106,8 +7106,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
+-        "libreoffice-calc-uno@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -7128,7 +7128,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -7146,7 +7146,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -7165,7 +7165,7 @@
+     {
+       "adapter_ids": [
+         "gimp-pdb@1",
+-        "gnome-os@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -7188,7 +7188,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "single_app",
+@@ -7207,9 +7207,9 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "libreoffice-calc-uno@1"
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "two_apps",
+       "canonical_app_count": 2,
+@@ -7229,7 +7229,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-writer-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -7247,7 +7247,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "picard-media@1",
+         "universal-atspi@1"
+       ],
+@@ -7305,7 +7305,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "single_app",
+@@ -7324,8 +7324,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
+-        "libreoffice-calc-uno@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "thunderbird-extension@1",
+         "universal-atspi@1"
+       ],
+@@ -7349,7 +7349,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -7367,7 +7367,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -7385,9 +7385,9 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "gnome-os@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -7408,7 +7408,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -7449,8 +7449,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -7468,7 +7468,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -7486,8 +7486,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
+         "thunderbird-extension@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -7508,8 +7508,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -7527,7 +7527,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "single_app",
+@@ -7546,7 +7546,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1",
++        "libreoffice.uno@1",
+         "vlc-mpris-http@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -7567,8 +7567,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -7586,9 +7586,9 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "gnome-os@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -7609,9 +7609,9 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "gnome-os@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -7632,7 +7632,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-writer-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -7651,8 +7651,8 @@
+     {
+       "adapter_ids": [
+         "gimp-pdb@1",
+-        "gnome-os@1",
+-        "libreoffice-impress-uno@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "three_apps",
+@@ -7677,7 +7677,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "single_app",
+@@ -7696,7 +7696,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -7732,7 +7732,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -7750,9 +7750,9 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "libreoffice-calc-uno@1"
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "two_apps",
+       "canonical_app_count": 2,
+@@ -7772,7 +7772,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -7790,7 +7790,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -7829,7 +7829,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -7847,7 +7847,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -7865,8 +7865,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1",
+-        "libreoffice-writer-uno@1"
++        "libreoffice.uno@1",
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "two_apps",
+       "canonical_app_count": 2,
+@@ -7904,7 +7904,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -7940,7 +7940,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -7996,7 +7996,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -8014,7 +8014,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "single_app",
+@@ -8033,8 +8033,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
+         "thunderbird-extension@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -8075,8 +8075,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -8094,9 +8094,9 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "libreoffice-calc-uno@1"
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "two_apps",
+       "canonical_app_count": 2,
+@@ -8152,7 +8152,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-writer-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -8170,7 +8170,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "single_app",
+@@ -8189,7 +8189,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -8227,7 +8227,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "single_app",
+@@ -8246,7 +8246,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -8264,7 +8264,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -8282,8 +8282,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
+-        "libreoffice-writer-uno@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -8322,7 +8322,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "single_app",
+@@ -8341,7 +8341,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -8379,7 +8379,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-writer-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -8397,8 +8397,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -8416,9 +8416,9 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "libreoffice-calc-uno@1"
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "two_apps",
+       "canonical_app_count": 2,
+@@ -8438,9 +8438,9 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "libreoffice-calc-uno@1"
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "two_apps",
+       "canonical_app_count": 2,
+@@ -8460,9 +8460,9 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "gnome-os@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "guest-os@1",
+         "universal-atspi@1",
+         "vscode-ghost-extension@1"
+       ],
+@@ -8486,7 +8486,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-writer-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -8504,7 +8504,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-writer-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -8522,8 +8522,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -8541,9 +8541,9 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1",
+-        "libreoffice-impress-uno@1",
+-        "libreoffice-writer-uno@1",
++        "libreoffice.uno@1",
++        "libreoffice.uno@1",
++        "libreoffice.uno@1",
+         "vlc-mpris-http@1"
+       ],
+       "app_count_difficulty": "four_plus_apps",
+@@ -8568,7 +8568,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -8604,10 +8604,10 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "gnome-os@1",
+-        "libreoffice-calc-uno@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "three_apps",
+@@ -8630,7 +8630,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "single_app",
+@@ -8649,7 +8649,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-writer-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -8685,7 +8685,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -8703,7 +8703,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "sandboxed-process@1",
+         "universal-atspi@1"
+       ],
+@@ -8725,7 +8725,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-writer-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -8783,7 +8783,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -8801,9 +8801,9 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "gnome-os@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -8844,7 +8844,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1",
++        "libreoffice.uno@1",
+         "vlc-mpris-http@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -8903,9 +8903,9 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "gnome-os@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -8926,8 +8926,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
+         "thunderbird-extension@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -8968,7 +8968,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -8986,8 +8986,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -9005,7 +9005,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -9059,8 +9059,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -9116,7 +9116,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -9134,8 +9134,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
+-        "libreoffice-calc-uno@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -9156,7 +9156,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -9174,7 +9174,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -9192,7 +9192,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1",
++        "libreoffice.uno@1",
+         "vscode-ghost-extension@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -9213,8 +9213,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -9232,10 +9232,10 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "gnome-os@1",
+-        "libreoffice-writer-uno@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "three_apps",
+@@ -9258,9 +9258,9 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
+-        "libreoffice-calc-uno@1",
+-        "libreoffice-writer-uno@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "three_apps",
+@@ -9283,8 +9283,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -9302,8 +9302,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -9321,7 +9321,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "media-metadata@1",
+         "universal-atspi@1"
+       ],
+@@ -9345,7 +9345,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -9363,7 +9363,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-writer-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -9399,10 +9399,10 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
+-        "libreoffice-calc-uno@1",
+-        "libreoffice-impress-uno@1",
+-        "libreoffice-writer-uno@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
++        "libreoffice.uno@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "four_plus_apps",
+@@ -9427,10 +9427,10 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "gnome-os@1",
+-        "libreoffice-writer-uno@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "three_apps",
+@@ -9453,8 +9453,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
+-        "libreoffice-calc-uno@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -9475,7 +9475,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-writer-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -9493,7 +9493,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -9511,9 +9511,9 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "libreoffice-writer-uno@1"
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "two_apps",
+       "canonical_app_count": 2,
+@@ -9533,7 +9533,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -9587,8 +9587,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
+-        "libreoffice-writer-uno@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -9609,8 +9609,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
+-        "libreoffice-calc-uno@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "media-metadata@1",
+         "pdf-evince@1",
+         "universal-atspi@1"
+@@ -9678,7 +9678,7 @@
+     {
+       "adapter_ids": [
+         "gimp-pdb@1",
+-        "gnome-os@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -9719,7 +9719,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "universal-atspi@1",
+         "vscode-ghost-extension@1"
+       ],
+@@ -9759,7 +9759,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-writer-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -9777,7 +9777,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "universal-atspi@1",
+         "vlc-mpris-http@1"
+       ],
+@@ -9799,8 +9799,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -9836,7 +9836,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "single_app",
+@@ -9855,8 +9855,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -9910,7 +9910,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -9928,7 +9928,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-writer-uno@1",
++        "libreoffice.uno@1",
+         "vscode-ghost-extension@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -9949,8 +9949,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -10004,7 +10004,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -10040,7 +10040,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -10058,7 +10058,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "mpris-media@1",
+         "universal-atspi@1",
+         "vlc-mpris-http@1"
+@@ -10083,8 +10083,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -10102,8 +10102,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -10121,7 +10121,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -10139,7 +10139,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -10157,8 +10157,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
+         "thunderbird-extension@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -10215,7 +10215,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -10233,7 +10233,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "single_app",
+@@ -10252,7 +10252,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "single_app",
+@@ -10272,7 +10272,7 @@
+     {
+       "adapter_ids": [
+         "gimp-pdb@1",
+-        "gnome-os@1",
++        "guest-os@1",
+         "pdf-evince@1",
+         "universal-atspi@1"
+       ],
+@@ -10298,7 +10298,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -10334,7 +10334,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -10352,8 +10352,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -10391,9 +10391,9 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "gnome-os@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -10414,8 +10414,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
+         "pdf-evince@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -10436,8 +10436,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -10455,7 +10455,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -10473,7 +10473,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -10509,9 +10509,9 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "gnome-os@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -10532,7 +10532,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -10550,7 +10550,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -10568,7 +10568,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -10586,9 +10586,9 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "gnome-os@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -10609,7 +10609,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "thunderbird-extension@1",
+         "universal-atspi@1"
+       ],
+@@ -10631,7 +10631,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-writer-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -10649,8 +10649,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -10668,7 +10668,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -10686,7 +10686,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -10704,8 +10704,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -10723,8 +10723,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -10762,7 +10762,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-writer-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -10780,9 +10780,9 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "gnome-os@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -10803,7 +10803,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "single_app",
+@@ -10822,8 +10822,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -10841,8 +10841,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
+-        "libreoffice-calc-uno@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -10863,8 +10863,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
+         "thunderbird-extension@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -10885,7 +10885,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "single_app",
+@@ -10904,8 +10904,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -10923,7 +10923,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -10941,8 +10941,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -10960,9 +10960,9 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
+-        "libreoffice-impress-uno@1",
+-        "libreoffice-writer-uno@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "three_apps",
+@@ -10985,7 +10985,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-writer-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -11021,8 +11021,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1",
+-        "libreoffice-writer-uno@1"
++        "libreoffice.uno@1",
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "two_apps",
+       "canonical_app_count": 2,
+@@ -11042,7 +11042,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "single_app",
+@@ -11061,7 +11061,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -11079,8 +11079,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -11098,7 +11098,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "thunderbird-extension@1",
+         "universal-atspi@1"
+       ],
+@@ -11120,7 +11120,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "single_app",
+@@ -11139,7 +11139,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -11175,9 +11175,9 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "libreoffice-calc-uno@1"
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "two_apps",
+       "canonical_app_count": 2,
+@@ -11197,7 +11197,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -11215,7 +11215,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1",
++        "libreoffice.uno@1",
+         "thunderbird-extension@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -11236,8 +11236,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -11273,9 +11273,9 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "gnome-os@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "guest-os@1",
+         "media-metadata@1",
+         "universal-atspi@1"
+       ],
+@@ -11301,7 +11301,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -11357,10 +11357,10 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "gnome-os@1",
+-        "libreoffice-calc-uno@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "three_apps",
+@@ -11421,7 +11421,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-writer-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -11439,7 +11439,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -11458,7 +11458,7 @@
+     {
+       "adapter_ids": [
+         "gimp-pdb@1",
+-        "gnome-os@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -11481,7 +11481,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1",
++        "libreoffice.uno@1",
+         "thunderbird-extension@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -11502,8 +11502,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -11521,10 +11521,10 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "libreoffice-calc-uno@1",
+-        "libreoffice-writer-uno@1"
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "libreoffice.uno@1",
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "three_apps",
+       "canonical_app_count": 3,
+@@ -11546,9 +11546,9 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "gnome-os@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -11607,10 +11607,10 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "gnome-os@1",
+-        "libreoffice-writer-uno@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "three_apps",
+@@ -11651,10 +11651,10 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "gnome-os@1",
+-        "libreoffice-calc-uno@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "three_apps",
+@@ -11677,9 +11677,9 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "libreoffice-writer-uno@1"
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "two_apps",
+       "canonical_app_count": 2,
+@@ -11717,7 +11717,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "single_app",
+@@ -11736,8 +11736,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
+         "thunderbird-extension@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -11778,8 +11778,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -11797,10 +11797,10 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "gnome-os@1",
+-        "libreoffice-uno@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "three_apps",
+@@ -11823,9 +11823,9 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "gnome-os@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "guest-os@1",
+         "universal-atspi@1",
+         "vscode-ghost-extension@1"
+       ],
+@@ -11849,7 +11849,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-writer-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -11905,7 +11905,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -11923,7 +11923,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-writer-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -12000,7 +12000,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -12018,8 +12018,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1",
+-        "libreoffice-writer-uno@1"
++        "libreoffice.uno@1",
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "two_apps",
+       "canonical_app_count": 2,
+@@ -12039,7 +12039,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "single_app",
+@@ -12076,7 +12076,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -12094,7 +12094,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-writer-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -12112,7 +12112,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -12130,7 +12130,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -12148,7 +12148,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1",
++        "libreoffice.uno@1",
+         "sandboxed-process@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -12169,7 +12169,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -12205,8 +12205,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -12224,7 +12224,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-writer-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -12260,7 +12260,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-impress-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -12296,8 +12296,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -12335,8 +12335,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
+-        "libreoffice-calc-uno@1",
++        "guest-os@1",
++        "libreoffice.uno@1",
+         "thunderbird-extension@1",
+         "universal-atspi@1"
+       ],
+@@ -12360,8 +12360,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -12399,8 +12399,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -12418,7 +12418,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-writer-uno@1",
++        "libreoffice.uno@1",
+         "sandboxed-process@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -12439,9 +12439,9 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "gnome-os@1",
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "two_apps",
+@@ -12462,9 +12462,9 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1",
+-        "libreoffice-calc-uno@1"
++        "browser.cdp@1",
++        "chrome.semantic@1",
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "two_apps",
+       "canonical_app_count": 2,
+@@ -12484,7 +12484,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "universal-atspi@1",
+         "vscode-ghost-extension@1"
+       ],
+@@ -12506,7 +12506,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "libreoffice-calc-uno@1"
++        "libreoffice.uno@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -12524,7 +12524,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "single_app",
+@@ -12581,8 +12581,8 @@
+     },
+     {
+       "adapter_ids": [
+-        "browser-page@1",
+-        "chrome-chrome@1"
++        "browser.cdp@1",
++        "chrome.semantic@1"
+       ],
+       "app_count_difficulty": "single_app",
+       "canonical_app_count": 1,
+@@ -12600,7 +12600,7 @@
+     },
+     {
+       "adapter_ids": [
+-        "gnome-os@1",
++        "guest-os@1",
+         "universal-atspi@1"
+       ],
+       "app_count_difficulty": "single_app",
+-- 
+2.50.1 (Apple Git-155)
+

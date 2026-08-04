@@ -1,0 +1,12 @@
+{
+  "name": "Chrome iframe and frame traversal semantics",
+  "coverage": ["chrome", "iframe", "frames", "colab"],
+  "task_path": "OSWorld/evaluation_examples/examples/multi_apps/dd60633f-2c72-42ba-8547-6f2c8cb0fdb0.json",
+  "max_tool_calls": 20,
+  "quality_constraints": {"min_chars": 1, "max_chars": 10000, "max_estimated_tokens": 2500, "max_duplicate_lines": 0, "forbid_protocol_jargon": true, "zero_images": true},
+  "steps": [
+    {"op": "read", "expect": {"contains": ["COMPUTER", "Chrome"], "active_header_contains": "Chrome", "active_header_not_contains": "gnome-shell", "min_surface_count": 1, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "read", "query": "code", "expect": {"contains": "COMPUTER", "min_surface_count": 1, "min_element_count": 0}},
+    {"op": "read", "query": "frame", "expect": {"contains": "COMPUTER", "min_surface_count": 1, "min_element_count": 0}}
+  ]
+}

@@ -1,0 +1,10 @@
+Verification discipline.
+
+- After each action that should change something, take a screenshot and compare it with
+  what you expected. If nothing changed, the action missed: do not repeat it blindly,
+  work out why (wrong element, page still loading, something covering it).
+- Keep a short running note of what you have already confirmed, so you do not redo work.
+- Before task_complete, restate the goal in one line and check the current screen against
+  each part of it. If any part is unmet, keep working instead of declaring completion.
+- A wrong claim of completion scores zero, exactly like doing nothing. There is no partial
+  credit for effort, so verifying is always worth the extra step.

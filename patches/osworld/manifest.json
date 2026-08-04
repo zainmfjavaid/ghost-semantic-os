@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "upstream": "https://github.com/xlang-ai/OSWorld.git",
+  "base_commit": "fad6d07f0a3ad456e7d966dcc98a7fee2491afe0",
+  "base_tree": "243a6c338443da81c973bf280d033e5f76c08e80",
+  "base_snapshot": {
+    "file": "osworld-base-fad6d07f.tar.gz",
+    "sha256": "f6a10757019a7cf93bdf06960b488a77e011e3b03a064152504ffbaf2bdb1176"
+  },
+  "canonical_final_commit": "d3781e929734efdc877fa6bfc5370e669570914c",
+  "final_tree": "76331b18181423ee60ec613c1475b2d8300b7b03",
+  "patches": [
+    {
+      "file": "0001-Add-strict-screenshot-free-observation-policy.patch",
+      "sha256": "2661fe292fc49c25bd744479c548e24204cd7f5b0245b461b114da30045bd35f"
+    },
+    {
+      "file": "0002-Inventory-Linux-application-coverage.patch",
+      "sha256": "4ca70277505baa87cef1a1970e9bb21514d2d1592574c6b64bb4042311c00056"
+    },
+    {
+      "file": "0003-Align-application-inventory-with-semantic-adapter-ID.patch",
+      "sha256": "74dcf25fd195a4fcc75ae937f1326d1dc922581bbf7952be862f48d4f1de67ab"
+    },
+    {
+      "file": "0004-Fix-DOCX-strip-whitespace-evaluator-option.patch",
+      "sha256": "ea659128e5018a128c4b1821dc5fb5335b1befcc32016fe8414b35bd300238c3"
+    },
+    {
+      "file": "0005-fix-fail-closed-on-setup-command-errors.patch",
+      "sha256": "c7dab2eadd825a27f666fdaa7b80d0f39d9574d1cd8ce9efe8275f85654580cc"
+    },
+    {
+      "file": "0006-Accept-current-browser-URL-parameter-aliases.patch",
+      "sha256": "04360602c9a11e6660584c50cbccff4beb794b241863fe293e1918f9df96ca6d"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "LibreOffice Calc semantics",
+  "coverage": ["libreoffice", "calc", "spreadsheet", "cells", "calc-scalar", "calc-formula", "calc-rectangular-paste", "public-type"],
+  "task_path": "OSWorld/evaluation_examples/examples/libreoffice_calc/01b269ae-2111-4a07-81fd-3fcd711993b0.json",
+  "max_tool_calls": 20,
+  "quality_constraints": {"min_chars": 1, "max_chars": 10000, "max_estimated_tokens": 2500, "max_duplicate_lines": 0, "forbid_protocol_jargon": true, "zero_images": true},
+  "steps": [
+    {"op": "read", "expect": {"contains": ["COMPUTER", "LibreOffice"], "active_header_contains": "LibreOffice Calc", "active_header_not_contains": "gnome-shell", "min_surface_count": 1, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "read", "query": "Sheet1!E2", "expect": {"contains": ["COMPUTER", "cell \"Sheet1 E2\"", "type=replace"], "active_header_contains": "LibreOffice Calc", "min_surface_count": 1, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "type", "match": {"contains": "cell \"Sheet1 E2\""}, "text": "42", "expect": {"contains": "COMPUTER", "active_header_contains": "LibreOffice Calc", "active_header_not_contains": "gnome-shell", "min_surface_count": 1, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "read", "query": "Sheet1!E2", "expect": {"contains": ["COMPUTER", "cell \"Sheet1 E2\"", "value=\"42\""], "active_header_contains": "LibreOffice Calc", "min_surface_count": 1, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "type", "match": {"contains": "cell \"Sheet1 E2\""}, "text": "=SUM(E3:E4)", "expect": {"contains": "COMPUTER", "active_header_contains": "LibreOffice Calc", "active_header_not_contains": "gnome-shell", "min_surface_count": 1, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "read", "query": "Sheet1!E2", "expect": {"contains": ["COMPUTER", "cell \"Sheet1 E2\"", "value=\"=SUM(E3:E4)\""], "active_header_contains": "LibreOffice Calc", "min_surface_count": 1, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "type", "match": {"contains": "cell \"Sheet1 E2\""}, "text": "1\t2\n3\t4", "expect": {"contains": "COMPUTER", "active_header_contains": "LibreOffice Calc", "active_header_not_contains": "gnome-shell", "min_surface_count": 1, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "read", "query": "Sheet1!E2:F3", "expect": {"contains": ["COMPUTER", "cell \"Sheet1 E2\" value=\"1\"", "cell \"Sheet1 F3\" value=\"4\""], "active_header_contains": "LibreOffice Calc", "min_surface_count": 1, "min_element_count": 4, "min_returned_elements": 4}},
+    {"op": "read", "query": "Save document", "expect": {"contains": ["COMPUTER", "button \"Save document\"", "click"], "active_header_contains": "modified", "min_surface_count": 1, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "click", "match": {"contains": "button \"Save document\""}, "expect": {"contains": "COMPUTER", "not_contains": "Save document", "active_header_contains": "LibreOffice Calc", "active_header_not_contains": "modified", "min_surface_count": 1, "min_element_count": 1, "min_returned_elements": 1}}
+  ]
+}

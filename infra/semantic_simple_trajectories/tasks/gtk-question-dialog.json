@@ -1,0 +1,31 @@
+{
+  "id": "688a9c15-918b-4ca6-9558-5c706f70cd2d",
+  "snapshot": "os",
+  "instruction": "Exercise the generic GTK question dialog through the public computer surface.",
+  "source": "ghost-semantic-model-free-fixture",
+  "config": [
+    {
+      "type": "launch",
+      "parameters": {
+        "command": [
+          "zenity",
+          "--question",
+          "--title=Semantic Dialog Fixture",
+          "--text=Choose one of the available responses.",
+          "--ok-label=Continue",
+          "--cancel-label=Cancel"
+        ]
+      }
+    }
+  ],
+  "trajectory": "trajectories/",
+  "related_apps": [
+    "os"
+  ],
+  "evaluator": {
+    "func": "infeasible"
+  },
+  "proxy": false,
+  "fixed_ip": false,
+  "possibility_of_env_change": "low"
+}

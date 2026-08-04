@@ -1,0 +1,89 @@
+{
+  "candidate_counts": {
+    "browser_associated_before_environment_filter": 30,
+    "browser_associated_runnable": 22
+  },
+  "pools": {
+    "browser_holdout_a_v2_runnable.json": {
+      "app_signatures": [
+        ["chrome", "os", "vs_code"],
+        ["chrome", "libreoffice_calc", "os"],
+        ["chrome", "libreoffice_writer"],
+        ["chrome", "libreoffice_calc", "libreoffice_writer"],
+        ["chrome", "libreoffice_writer"],
+        ["chrome", "libreoffice_calc", "os"],
+        ["chrome"],
+        ["chrome", "libreoffice_calc"],
+        ["chrome", "thunderbird"],
+        ["chrome", "libreoffice_writer", "os"],
+        ["chrome", "thunderbird"]
+      ],
+      "count": 11,
+      "sha256": "0c0f47706cc1b9823eb57d2404a01246818e11762428dc10f35f19eabdb57df2",
+      "task_ids": [
+        "e2392362-125e-4f76-a2ee-524b183a3412",
+        "6f4073b8-d8ea-4ade-8a18-c5d1d5d5aa9a",
+        "236833a3-5704-47fc-888c-4f298f09f799",
+        "da52d699-e8d2-4dc5-9191-a2199e0b6a9b",
+        "df67aebb-fb3a-44fd-b75b-51b6012df509",
+        "deec51c9-3b1e-4b9e-993c-4776f20e8bb2",
+        "b4f95342-463e-4179-8c3f-193cd7241fb2",
+        "f8cfa149-d1c1-4215-8dac-4a0932bad3c2",
+        "e135df7c-7687-4ac0-a5f0-76b74438b53e",
+        "dd60633f-2c72-42ba-8547-6f2c8cb0fdb0",
+        "58565672-7bfe-48ab-b828-db349231de6b"
+      ]
+    },
+    "browser_holdout_b_v2_runnable.json": {
+      "app_signatures": [
+        ["chrome", "libreoffice_suite", "os"],
+        ["chrome", "libreoffice_calc"],
+        ["chrome", "os", "vs_code"],
+        ["chrome", "libreoffice_calc", "os"],
+        ["chrome", "libreoffice_writer", "os"],
+        ["chrome", "libreoffice_calc"],
+        ["chrome", "libreoffice_calc"],
+        ["chrome", "libreoffice_writer", "os"],
+        ["chrome", "libreoffice_calc"],
+        ["chrome", "libreoffice_calc"],
+        ["chrome", "pdf"]
+      ],
+      "count": 11,
+      "sha256": "c660d52345bb53bcdc169446027f4cf4c196d57bf73f76921db0aad58b61b8c4",
+      "task_ids": [
+        "e1fc0df3-c8b9-4ee7-864c-d0b590d3aa56",
+        "67890eb6-6ce5-4c00-9e3d-fb4972699b06",
+        "69acbb55-d945-4927-a87b-8480e1a5bb7e",
+        "d1acdb87-bb67-4f30-84aa-990e56a09c92",
+        "873cafdd-a581-47f6-8b33-b9696ddb7b05",
+        "3e3fc409-bff3-4905-bf16-c968eee3f807",
+        "c7c1e4c3-9e92-4eba-a4b8-689953975ea4",
+        "7ff48d5b-2df2-49da-b500-a5150ffc7f18",
+        "5990457f-2adb-467b-a4af-5c857c92d762",
+        "68a25bd4-59c7-4f4d-975e-da0c8509c848",
+        "a82b78bb-7fde-4cb3-94a4-035baf10bcf0"
+      ]
+    }
+  },
+  "portable_deployment_sha256": "3afc7efc90f1d0bbd011e87e9540aeb326de770790aeff0f40f157722bd81c41",
+  "rank_bucket": "browser-associated",
+  "retired_pools": {
+    "browser_holdout_a_v2.json": {
+      "reason": "3 tasks require unavailable Google Drive OAuth",
+      "sha256": "157e5b7278f32519570667a34fc6ea34be0575cfb4011aa49b5571526cc1fea6"
+    },
+    "browser_holdout_b_v2.json": {
+      "reason": "4 tasks require unavailable Google Drive OAuth",
+      "sha256": "79eba5a28902954589e11d84374225c267d7a10cc15cda239810cd8f9b955266"
+    }
+  },
+  "runtime_sha256": "f4242be6b2f661a8d104eea7dd8e900093fbcd45f7ea8ad8010c418269f56fa7",
+  "seed": "semantic-runtime-v2-ood-2026-07-31",
+  "selection_fields": [
+    "id",
+    "related_apps",
+    "path/domain",
+    "published_test_nogdrive membership"
+  ],
+  "selection_rule": "Apply the original frozen hash ranking, remove tasks outside OSWorld test_nogdrive, split all 22 remaining candidates into consecutive disjoint 11-task pools."
+}

@@ -1,0 +1,39 @@
+{
+  "id": "43bb8910-da15-4ee8-bb6b-bf1e50f4e62a",
+  "snapshot": "os",
+  "instruction": "Exercise the generic GTK file chooser through the public computer surface.",
+  "source": "ghost-semantic-model-free-fixture",
+  "config": [
+    {
+      "type": "execute",
+      "parameters": {
+        "command": [
+          "bash",
+          "-lc",
+          "mkdir -p /home/user/share && printf 'semantic fixture\\n' > /home/user/share/semantic-simple-fixture.txt"
+        ]
+      }
+    },
+    {
+      "type": "launch",
+      "parameters": {
+        "command": [
+          "zenity",
+          "--file-selection",
+          "--title=Semantic File Chooser Fixture",
+          "--filename=/home/user/"
+        ]
+      }
+    }
+  ],
+  "trajectory": "trajectories/",
+  "related_apps": [
+    "os"
+  ],
+  "evaluator": {
+    "func": "infeasible"
+  },
+  "proxy": false,
+  "fixed_ip": false,
+  "possibility_of_env_change": "low"
+}

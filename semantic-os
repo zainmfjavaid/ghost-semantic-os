@@ -1,0 +1,100 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+root="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+command_name="${1:-help}"
+if [ "$#" -gt 0 ]; then shift; fi
+
+usage() {
+  cat <<'EOF'
+Ghost Semantic OS
+
+Usage:
+  ./semantic-os bootstrap [--source-only]
+  ./semantic-os doctor [--source-only] [--json]
+  ./semantic-os test [--fast|--full]
+  ./semantic-os serve
+  ./semantic-os canary --base-url URL --trajectory FILE --output DIR
+  ./semantic-os run --tasks-file POOL [harness options]
+  ./semantic-os vm create|sync|setup|warm|status
+  ./semantic-os gcp-run POOL LABEL MAX_CALLS [MODEL] [THINKING] [VARIANT]
+  ./semantic-os version
+
+The public policy interface is semantic-simple-v1: read_computer,
+computer_click, and computer_type. See README.md and docs/installation.md.
+EOF
+}
+
+case "$command_name" in
+  bootstrap)
+    exec "$root/scripts/bootstrap.sh" "$@"
+    ;;
+  doctor)
+    exec "$root/scripts/doctor.sh" "$@"
+    ;;
+  test)
+    exec "$root/scripts/test.sh" "$@"
+    ;;
+  serve)
+    test -x "$root/.venv/bin/python" || {
+      echo "Missing .venv. Run ./semantic-os bootstrap first." >&2
+      exit 1
+    }
+    export GHOST_OSWORLD_RUNTIME_REPO="$root"
+    export OSWORLD_OUTER_PROVIDER="${OSWORLD_OUTER_PROVIDER:-self-hosted}"
+    export OSWORLD_OUTER_VM_NAME="${OSWORLD_OUTER_VM_NAME:-$(hostname)}"
+    cd "$root"
+    exec "$root/.venv/bin/python" infra/gcp_bench_server.py "$@"
+    ;;
+  canary)
+    test -x "$root/.venv/bin/python" || {
+      echo "Missing .venv. Run ./semantic-os bootstrap first." >&2
+      exit 1
+    }
+    cd "$root"
+    exec "$root/.venv/bin/python" infra/gcp_semantic_simple_canary.py "$@"
+    ;;
+  run)
+    test -d "$root/harness/node_modules" || {
+      echo "Missing harness dependencies. Run ./semantic-os bootstrap first." >&2
+      exit 1
+    }
+    args=("$@")
+    have_env=0
+    have_runtime=0
+    have_input=0
+    for arg in "${args[@]}"; do
+      [ "$arg" = "--env-url" ] && have_env=1
+      [ "$arg" = "--runtime" ] && have_runtime=1
+      [ "$arg" = "--model-input" ] && have_input=1
+    done
+    [ "$have_env" -eq 1 ] || args=(--env-url "${GHOST_OSWORLD_ENV_URL:-http://127.0.0.1:8079}" "${args[@]}")
+    [ "$have_runtime" -eq 1 ] || args+=(--runtime semantic-simple-v1)
+    [ "$have_input" -eq 1 ] || args+=(--model-input text)
+    cd "$root/harness"
+    exec npm run --silent run -- "${args[@]}"
+    ;;
+  vm)
+    exec "$root/infra/gcp_fleet.sh" "$@"
+    ;;
+  gcp-run)
+    test "$#" -ge 3 || { usage >&2; exit 2; }
+    pool="$1"; label="$2"; max_calls="$3"
+    model="${4:-qwen/qwen3.6-27b}"
+    thinking="${5:-medium}"
+    variant="${6:-semantic_simple_v1}"
+    exec "$root/infra/gcp_run.sh" "$pool" "$label" "$max_calls" \
+      "$model" "$thinking" "$variant" semantic-simple
+    ;;
+  version)
+    cat "$root/VERSION"
+    ;;
+  help|-h|--help)
+    usage
+    ;;
+  *)
+    echo "Unknown command: $command_name" >&2
+    usage >&2
+    exit 2
+    ;;
+esac

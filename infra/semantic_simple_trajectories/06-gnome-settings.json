@@ -1,0 +1,13 @@
+{
+  "name": "GNOME settings semantics",
+  "coverage": ["gnome", "settings", "auto-lock"],
+  "task_path": "OSWorld/evaluation_examples/examples/os/a4d98375-215b-4a4d-aee9-3d4370fccc41.json",
+  "max_tool_calls": 20,
+  "quality_constraints": {"min_chars": 1, "max_chars": 10000, "max_estimated_tokens": 2500, "max_duplicate_lines": 0, "forbid_protocol_jargon": true, "zero_images": true},
+  "steps": [
+    {"op": "read", "expect": {"contains": ["COMPUTER", "Desktop", "application \"Settings\" click"], "active_header_contains": "Desktop", "active_header_not_contains": "gnome-shell", "min_surface_count": 1, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "read", "query": "application Settings", "expect": {"contains": ["COMPUTER", "application \"Settings\" click"], "active_header_contains": "Desktop", "min_surface_count": 1, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "click", "match": {"contains": "application \"Settings\" click"}, "expect": {"contains": "COMPUTER", "active_header_contains": "Settings", "active_header_not_contains": "Desktop", "min_surface_count": 1, "min_element_count": 1, "min_returned_elements": 1}},
+    {"op": "read", "query": "lock", "expect": {"contains": "COMPUTER", "active_header_contains": "Settings", "min_surface_count": 1, "min_element_count": 0}}
+  ]
+}

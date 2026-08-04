@@ -1,0 +1,29 @@
+ROUND 2 PATCH (not yet applied) — screen-change feedback
+
+Rationale: baseline failures are dominated by blind clicking (13 of 19 calls in a
+typical failed episode were clicks). The agent cannot tell that its click did
+nothing, so it clicks again somewhere else. Telling it "the screen did not change"
+is cheap, domain-general, and targets the observed failure directly.
+
+In _encode(), after producing the frame:
+
+    import hashlib
+    digest = hashlib.sha256(shot).hexdigest() if shot else None
+    if entry is not None:
+        if digest and entry.get("last_digest") == digest:
+            payload["screen_unchanged"] = True
+        entry["last_digest"] = digest
+
+In computerTools screenshotResult():
+
+    if (result.screen_unchanged) {
+      lines.push(
+        'The screen is pixel-identical to before your last action, so that action had '
+        + 'no visible effect. Do not simply repeat it. Work out why: wrong target, page '
+        + 'still loading, something covering the element, or focus elsewhere.',
+      );
+    }
+
+Caveat to check when applied: a page with a blinking cursor or animation will never
+hash identical, so this under-reports rather than over-reports. That is the safe
+direction — it will never wrongly tell the agent nothing happened.

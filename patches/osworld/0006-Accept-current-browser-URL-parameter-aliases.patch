@@ -1,0 +1,76 @@
+From d3781e929734efdc877fa6bfc5370e669570914c Mon Sep 17 00:00:00 2001
+From: zainmfjavaid <zainmfj@gmail.com>
+Date: Mon, 3 Aug 2026 05:50:53 -0700
+Subject: [PATCH 6/6] Accept current browser URL parameter aliases
+
+---
+ desktop_env/evaluators/getters/chrome.py       | 18 +++++++++++++++++-
+ .../f79439ad-3ee8-4f99-a518-0eb60e5652b0.json  | 11 ++++++++++-
+ 2 files changed, 27 insertions(+), 2 deletions(-)
+
+diff --git a/desktop_env/evaluators/getters/chrome.py b/desktop_env/evaluators/getters/chrome.py
+index db01639..3dfcd46 100644
+--- a/desktop_env/evaluators/getters/chrome.py
++++ b/desktop_env/evaluators/getters/chrome.py
+@@ -2776,6 +2776,11 @@ def get_active_tab_url_parse(env, config: Dict[str, Any]):
+         'replace': optional,
+             a dict, used to replace the original key with the new key.
+             ( { "original key": "new key" } )
++        'aliases': optional,
++            a dict from canonical key to alternate live-site query keys. The
++            canonical key wins when both are present. This keeps evaluators
++            valid when a site renames URL parameters without changing the
++            task's semantic state.
+     """
+     active_tab_url = get_active_url_from_accessTree(env, config)
+     if active_tab_url is None:
+@@ -2789,7 +2794,18 @@ def get_active_tab_url_parse(env, config: Dict[str, Any]):
+     # Define the keys of interest
+     keys_of_interest = [key for key in config["parse_keys"]]
+     # Extract the parameters of interest
+-    extracted_params = {key: query_params.get(key, [''])[0] for key in keys_of_interest}
++    aliases = config.get("aliases") or {}
++    extracted_params = {}
++    for key in keys_of_interest:
++        candidates = [key, *aliases.get(key, [])]
++        extracted_params[key] = next(
++            (
++                query_params[candidate][0]
++                for candidate in candidates
++                if candidate in query_params and query_params[candidate]
++            ),
++            "",
++        )
+     if "replace" in config:
+         for key in config["replace"].keys():
+             # change original key to new key, keep value unchange
+diff --git a/evaluation_examples/examples/chrome/f79439ad-3ee8-4f99-a518-0eb60e5652b0.json b/evaluation_examples/examples/chrome/f79439ad-3ee8-4f99-a518-0eb60e5652b0.json
+index 78a235c..796a0d6 100644
+--- a/evaluation_examples/examples/chrome/f79439ad-3ee8-4f99-a518-0eb60e5652b0.json
++++ b/evaluation_examples/examples/chrome/f79439ad-3ee8-4f99-a518-0eb60e5652b0.json
+@@ -56,6 +56,15 @@
+         "tpStartDate",
+         "isReturn"
+       ],
++      "aliases": {
++        "originIata": ["Origin"],
++        "destinationIata": ["Destination"],
++        "tpAdults": ["ADT"],
++        "tpTeens": ["TEEN"],
++        "tpChildren": ["CHD"],
++        "tpStartDate": ["DateOut"],
++        "isReturn": ["RoundTrip"]
++      },
+       "replace": {
+         "tpStartDate": "time"
+       }
+@@ -81,4 +90,4 @@
+   "proxy": true,
+   "fixed_ip": false,
+   "possibility_of_env_change": "low"
+-}
+\ No newline at end of file
++}
+-- 
+2.50.1 (Apple Git-155)
+

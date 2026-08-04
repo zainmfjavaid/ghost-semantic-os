@@ -1,0 +1,278 @@
+{
+  "families": [
+    {
+      "adapters": [
+        {
+          "adapter_id": "browser.cdp@1",
+          "known_representation_gaps": [],
+          "native_bridge": false,
+          "status": "implemented"
+        },
+        {
+          "adapter_id": "chrome.semantic@1",
+          "known_representation_gaps": [],
+          "native_bridge": false,
+          "status": "implemented"
+        }
+      ],
+      "canonical_id": "chrome",
+      "disposition": "implemented",
+      "family_representation_gaps": [],
+      "task_count": 90
+    },
+    {
+      "adapters": [
+        {
+          "adapter_id": "gimp-pdb@1",
+          "known_representation_gaps": [
+            {
+              "capability": "visual_composition",
+              "reason": "judging aesthetic composition or visual similarity requires semantic-visual-v1"
+            },
+            {
+              "capability": "freehand_painting",
+              "reason": "unstructured brush trajectories require a visual reference and are not a bounded semantic action"
+            }
+          ],
+          "native_bridge": false,
+          "status": "representation_gap"
+        }
+      ],
+      "canonical_id": "gimp",
+      "disposition": "representation_gap",
+      "family_representation_gaps": [
+        "visual_composition"
+      ],
+      "task_count": 36
+    },
+    {
+      "adapters": [
+        {
+          "adapter_id": "guest-os@1",
+          "known_representation_gaps": [],
+          "native_bridge": false,
+          "status": "implemented"
+        },
+        {
+          "adapter_id": "universal-atspi@1",
+          "known_representation_gaps": [],
+          "native_bridge": false,
+          "status": "implemented"
+        }
+      ],
+      "canonical_id": "gnome_os",
+      "disposition": "implemented",
+      "family_representation_gaps": [],
+      "task_count": 86
+    },
+    {
+      "adapters": [
+        {
+          "adapter_id": "media-metadata@1",
+          "known_representation_gaps": [
+            {
+              "capability": "visual_content",
+              "reason": "semantic-v1 exposes deterministic OCR/palette/histogram data but does not judge images"
+            }
+          ],
+          "native_bridge": true,
+          "status": "implemented"
+        }
+      ],
+      "canonical_id": "image_media",
+      "disposition": "implemented",
+      "family_representation_gaps": [
+        "visual_content"
+      ],
+      "task_count": 3
+    },
+    {
+      "adapters": [
+        {
+          "adapter_id": "libreoffice.uno@1",
+          "known_representation_gaps": [],
+          "native_bridge": false,
+          "status": "implemented"
+        }
+      ],
+      "canonical_id": "libreoffice_calc",
+      "disposition": "implemented",
+      "family_representation_gaps": [],
+      "task_count": 78
+    },
+    {
+      "adapters": [
+        {
+          "adapter_id": "libreoffice.uno@1",
+          "known_representation_gaps": [],
+          "native_bridge": false,
+          "status": "implemented"
+        }
+      ],
+      "canonical_id": "libreoffice_impress",
+      "disposition": "implemented",
+      "family_representation_gaps": [],
+      "task_count": 55
+    },
+    {
+      "adapters": [
+        {
+          "adapter_id": "libreoffice.uno@1",
+          "known_representation_gaps": [],
+          "native_bridge": false,
+          "status": "implemented"
+        }
+      ],
+      "canonical_id": "libreoffice_suite",
+      "disposition": "implemented",
+      "family_representation_gaps": [],
+      "task_count": 1
+    },
+    {
+      "adapters": [
+        {
+          "adapter_id": "libreoffice.uno@1",
+          "known_representation_gaps": [],
+          "native_bridge": false,
+          "status": "implemented"
+        }
+      ],
+      "canonical_id": "libreoffice_writer",
+      "disposition": "implemented",
+      "family_representation_gaps": [],
+      "task_count": 50
+    },
+    {
+      "adapters": [
+        {
+          "adapter_id": "mpris-media@1",
+          "known_representation_gaps": [],
+          "native_bridge": true,
+          "status": "implemented"
+        }
+      ],
+      "canonical_id": "media_player",
+      "disposition": "implemented",
+      "family_representation_gaps": [],
+      "task_count": 1
+    },
+    {
+      "adapters": [
+        {
+          "adapter_id": "pdf-evince@1",
+          "known_representation_gaps": [
+            {
+              "capability": "visual_page_similarity",
+              "reason": "visual page composition belongs to semantic-visual-v1"
+            },
+            {
+              "capability": "freeform_ink_annotation",
+              "reason": "freehand geometry cannot be expressed without a visual reference"
+            }
+          ],
+          "native_bridge": true,
+          "status": "implemented"
+        }
+      ],
+      "canonical_id": "pdf_evince",
+      "disposition": "implemented",
+      "family_representation_gaps": [],
+      "task_count": 5
+    },
+    {
+      "adapters": [
+        {
+          "adapter_id": "picard-media@1",
+          "known_representation_gaps": [],
+          "native_bridge": true,
+          "status": "representation_gap"
+        }
+      ],
+      "canonical_id": "picard_media",
+      "disposition": "representation_gap",
+      "family_representation_gaps": [],
+      "task_count": 1
+    },
+    {
+      "adapters": [
+        {
+          "adapter_id": "sandboxed-process@1",
+          "known_representation_gaps": [
+            {
+              "capability": "interactive_full_screen_terminal_ui",
+              "reason": "the worker exposes owned processes and PTYs, not pixel terminal control"
+            }
+          ],
+          "native_bridge": true,
+          "status": "implemented"
+        }
+      ],
+      "canonical_id": "terminal",
+      "disposition": "implemented",
+      "family_representation_gaps": [],
+      "task_count": 7
+    },
+    {
+      "adapters": [
+        {
+          "adapter_id": "thunderbird-extension@1",
+          "known_representation_gaps": [
+            {
+              "capability": "server_side_mail_search_when_account_is_offline",
+              "reason": "the bridge reports only state available to the configured account and local store"
+            }
+          ],
+          "native_bridge": false,
+          "status": "representation_gap"
+        }
+      ],
+      "canonical_id": "thunderbird",
+      "disposition": "representation_gap",
+      "family_representation_gaps": [],
+      "task_count": 27
+    },
+    {
+      "adapters": [
+        {
+          "adapter_id": "vlc-mpris-http@1",
+          "known_representation_gaps": [],
+          "native_bridge": true,
+          "status": "implemented"
+        }
+      ],
+      "canonical_id": "vlc",
+      "disposition": "implemented",
+      "family_representation_gaps": [],
+      "task_count": 23
+    },
+    {
+      "adapters": [
+        {
+          "adapter_id": "vscode-ghost-extension@1",
+          "known_representation_gaps": [
+            {
+              "capability": "rendered_extension_webview_visual_content",
+              "reason": "extension webview pixels require the separately scored visual sidecar"
+            }
+          ],
+          "native_bridge": false,
+          "status": "representation_gap"
+        }
+      ],
+      "canonical_id": "vscode",
+      "disposition": "representation_gap",
+      "family_representation_gaps": [],
+      "task_count": 34
+    }
+  ],
+  "inventory_sha256": "717dd5a5ee440db33e51a3d6fbbf82b82b6f9405352cfe1df77d86aa6ee560a4",
+  "inventory_task_count": 369,
+  "runtime": "semantic-v1",
+  "schema_version": 1,
+  "summary": {
+    "family_count": 15,
+    "implemented_families": 11,
+    "missing_families": 0,
+    "representation_gap_families": 4
+  }
+}
